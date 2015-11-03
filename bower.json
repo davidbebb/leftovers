@@ -1,0 +1,21 @@
+{
+  "name": "leftovers",
+  "homepage": "https://github.com/davidbebb/leftovers",
+  "authors": [
+    "davidbebb <davidbebb@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "~2.3.1"
+  }
+}

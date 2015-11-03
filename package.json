@@ -1,0 +1,22 @@
+{
+  "name": "leftovers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidbebb/leftovers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidbebb/leftovers/issues"
+  },
+  "homepage": "https://github.com/davidbebb/leftovers#readme",
+  "dependencies": {
+    "firebase": "^2.3.1"
+  }
+}
