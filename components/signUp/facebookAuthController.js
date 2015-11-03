@@ -1,0 +1,3 @@
+leftoversApp.controller('FacebookAuthController', function() {
+
+});

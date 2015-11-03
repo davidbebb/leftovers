@@ -8,13 +8,14 @@
     <script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="app.module.js"></script>
     <script src="app.routes.js"></script>
+    <script src='components/signUp/facebookAuthController.js'></script>
     <script>
       var Firebase = require("firebase");
       var myFirebaseRef = new Firebase("https://leftovers-app.firebaseio.com/");
     </script>
   </head>
   <body>
-
+  <button class='btn' id='signup' ng-click''>Sign Up with Facebook</button>
 
   </body>
 </html>

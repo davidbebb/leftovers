@@ -1,1 +1,3 @@
-var leftoversApp = angular.module('LeftoversApp', []);
+var leftoversApp = angular.module('LeftoversApp', [function() {
+
+}]);
