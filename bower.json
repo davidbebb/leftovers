@@ -16,6 +16,11 @@
     "tests"
   ],
   "dependencies": {
-    "firebase": "~2.3.1"
+    "firebase": "~2.3.1",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "angularfire": "~1.1.3"
   }
 }
