@@ -17,10 +17,10 @@
   </head>
   <body ng-controller="FacebookAuthController as facebookCtrl">
   <button class='btn btn-class=warning' id='signup' ng-click='login()'>Sign Up with Facebook</button>
+  <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
 
 
   <div ng-if="authData.facebook" class="list card">
-    <p>testing this</p>
    <div class="item item-avatar">
      <img ng-src="{{authData.facebook.profileImageURL}}" alt="">
      <h2>{{authData.facebook.displayName}}</h2>
