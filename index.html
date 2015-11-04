@@ -10,13 +10,24 @@
     <script src="app.module.js"></script>
     <script src="app.route.js"></script>
     <script src='components/signUp/facebookAuthController.js'></script>
-    <script>
-      var Firebase = require("firebase");
+    <!-- <script>
+      // var Firebase = require("firebase");
       var myFirebaseRef = new Firebase("https://leftovers-app.firebaseio.com/");
-    </script>
+    </script> -->
   </head>
   <body ng-controller="FacebookAuthController as facebookCtrl">
   <button class='btn btn-class=warning' id='signup' ng-click='login()'>Sign Up with Facebook</button>
+
+
+  <div ng-if="authData.facebook" class="list card">
+    <p>testing this</p>
+   <div class="item item-avatar">
+     <img ng-src="{{authData.facebook.profileImageURL}}" alt="">
+     <h2>{{authData.facebook.displayName}}</h2>
+     <p>{{authData.facebook.username}}</p>
+     <p>Facebook</p>
+   </div>
+ </div>
 
   </body>
 </html>
