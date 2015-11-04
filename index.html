@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="eng" ng-app="LeftoversApp">
   <head>
     <meta charset="utf-8">
     <title>leftovers</title>
-    <script>
-      var Firebase = require("firebase");
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="/bower_components/firebase/firebase.js"></script>
+    <script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.route.js"></script>
+    <script src='components/signUp/facebookAuthController.js'></script>
+    <!-- <script>
+      // var Firebase = require("firebase");
       var myFirebaseRef = new Firebase("https://leftovers-app.firebaseio.com/");
-    </script>
+    </script> -->
   </head>
   <body>
+  <div ng-controller="FacebookAuthController as facebookCtrl">
+  <button class='btn btn-class=warning' id='signup' ng-click='login()'>Sign Up with Facebook</button>
+  <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
 
+
+
+  </div>
   </body>
 </html>
