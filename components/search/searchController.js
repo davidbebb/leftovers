@@ -8,8 +8,8 @@ leftoversApp.controller('SearchController', function($scope, $http) {
   var apiKey = "9m9bjXUNhUIE78Lf26Yby9bV5UE4X7zi";
   var search_url = "";
 
-  $scope.addIngredient = function(ingredient){
-        $scope.ingredients.push(ingredient);
+  $scope.addIngredient = function(ingredient1, ingredient2, ingredient3){
+        $scope.ingredients.push(ingredient1, ingredient2, ingredient3);
         console.log($scope.ingredients);
         var recipeId = "/recipes?any_kw=" + ($scope.ingredients).toString();
         var search_url = "http://api.bigoven.com" + recipeId + "&api_key=" + apiKey + "&pg=1&rpp=15";

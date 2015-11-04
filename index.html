@@ -28,9 +28,11 @@
      <button class='btn btn-class=profile' id='profile' ng-click='profile()'>Search</button>
 
      <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
-       <form class="new-goal" ng-submit="addIngredient(ingredient)">
-          <input type="text" ng-model="ingredient" placeholder="choose ingredient">
-          <button>Add ingredient</button>
+       <form class="new-goal" ng-submit="addIngredient(ingredient1, ingredient2, ingredient3)">
+          <input type="text" ng-model="ingredient1" placeholder="choose ingredient">
+          <input type="text" ng-model="ingredient2" placeholder="choose ingredient">
+          <input type="text" ng-model="ingredient3" placeholder="choose ingredient">
+          <button>Add ingredients</button>
        </form>
 
        <div class="recipe-container" ng-repeat="post in posts">
