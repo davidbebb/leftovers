@@ -16,7 +16,7 @@
     </script> -->
   </head>
   <body ng-controller="FacebookAuthController as facebookCtrl">
-  <button class='btn btn-class=warning' id='signup' ng-click='login()'>Sign Up with Facebook</button>
+  <button class='btn btn-class=warning' id='signup' ng-click='login()' ng-hide='authData.facebook'>Sign Up with Facebook</button>
   <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
 
 
@@ -27,6 +27,8 @@
      <p>{{authData.facebook.username}}</p>
      <p>Facebook</p>
    </div>
+
+
  </div>
 
   </body>
