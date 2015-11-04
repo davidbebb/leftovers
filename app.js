@@ -4,7 +4,7 @@ LeftOvers.controller('LeftOversCtrl', function($scope, $http) {
 
   var self = this;
   var apiKey = "9m9bjXUNhUIE78Lf26Yby9bV5UE4X7zi";
-  var recipeId = "/recipes?any_kw=potato,onion&pg=1&rpp=5";
+  var recipeId = "/recipes?any_kw=potato,onion,chicken,fish,beans&pg=1&rpp=5";
   var url = "http://api.bigoven.com" + recipeId + "&api_key=" + apiKey;
   var recipe_url = 'http://api.bigoven.com/recipe/63033' + "?api_key=" + apiKey
 

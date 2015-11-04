@@ -31,10 +31,6 @@ leftoversApp.controller('FacebookAuthController', function($scope) {
     ref.unauth();
   };
 
-  $scope.profile = function() {
-
-  }
-
 
 
 
