@@ -10,6 +10,9 @@
     <script src="app.module.js"></script>
     <script src="app.route.js"></script>
     <script src='components/signUp/facebookAuthController.js'></script>
+    <script src='components/search/searchController.js'></script>
+
+
     <!-- <script>
       // var Firebase = require("firebase");
       var myFirebaseRef = new Firebase("https://leftovers-app.firebaseio.com/");
@@ -22,10 +25,14 @@
 
 
 
+     <button class='btn btn-class=profile' id='profile' ng-click='profile()'>Search</button>
 
- <button class='btn btn-class=profile' id='profile' ng-click='profile()'>Search</button>
+     <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
+       <form class="new-goal" ng-submit="addIngredient(ingredient)">
+          <input type="text" ng-model="ingredient" placeholder="choose ingredient">
+          <button>Add ingredient</button>
+      </form>
+    </div>
 
-
-  </div>
   </body>
 </html>
