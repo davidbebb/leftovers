@@ -24,12 +24,12 @@
    <div class="item item-avatar">
      <img ng-src="{{authData.facebook.profileImageURL}}" alt="">
      <h2>{{authData.facebook.displayName}}</h2>
-     <p>{{authData.facebook.username}}</p>
-     <p>Facebook</p>
+     <p>Welcome{{authData.facebook.username}}</p>
    </div>
 
 
- </div>
+ <button class='btn btn-class=profile' id='profile' ng-click='profile()'>Set up your profile</button>
+
 
   </body>
 </html>

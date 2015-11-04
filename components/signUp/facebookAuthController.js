@@ -1,5 +1,7 @@
 leftoversApp.controller('FacebookAuthController', function($scope) {
-  var ref = new Firebase("https://leftovers-app.firebaseio.com");
+
+  var ref = new Firebase("https://leftovers-app.firebaseio.com/users");
+
   $scope.login = function(){
     ref.authWithOAuthPopup("facebook", function(error, authData) {
       if (error) {
@@ -7,7 +9,11 @@ leftoversApp.controller('FacebookAuthController', function($scope) {
       } else {
         console.log("Authenticated successfully with payload:", authData);
       }
-        ref.push({user:authData});
+      ref.push({
+        authData,
+        diet: "vegetarian",
+        ingredients: "potato"
+      });
     });
   };
 
@@ -24,4 +30,12 @@ leftoversApp.controller('FacebookAuthController', function($scope) {
   $scope.logout = function(){
     ref.unauth();
   };
+
+  $scope.profile = function() {
+
+  }
+
+
+
+
 });
