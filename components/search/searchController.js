@@ -1,18 +1,23 @@
 leftoversApp.controller('SearchController', function($scope, $http) {
 
-  $scope.hiddenDiv = false;
-  $scope.showDiv = function() {
-    $scope.hiddenDiv = !$scope.hiddenDiv;
-  };
-
   $scope.ingredients = [];
   $scope.posts = null;
-  $scope.meat = ['chicken', 'beef', 'pork', 'turkey'];
 
   var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
   var recipeId = '';
   var apiKey = '9m9bjXUNhUIE78Lf26Yby9bV5UE4X7zi';
   var searchUrl = '';
+
+
+  $scope.hiddenDiv = false;
+  $scope.showDiv = function() {
+    $scope.hiddenDiv = !$scope.hiddenDiv;
+  };
+
+  $http.get('meat.json').then(function(data) {
+     $scope.meat = data.data;
+     console.log($scope.meat);
+   })
 
   $scope.getIngredients = function() {
     return $scope.ingredients;
