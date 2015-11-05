@@ -4,10 +4,22 @@ describe('User Sign up page', function() {
     expect(browser.getTitle()).toEqual('leftovers');
   });
 
-  it('allows user to sign up with Facebook', function() {
+  it('displays a sign up button', function() {
     browser.get('http://localhost:8080');
+    var myElement = element(by.id('signup'));
+    expect(myElement.isPresent()).toBeTruthy();
+  });
 
-    element(by.id('signup')).click();
-    expect();
+  it('shows a popup when the sign up button is clicked', function() {
+    browser.get('http://localhost:8080');
+    var myElement = element(by.id('signup'));
+    myElement.click();
+    
+  });
+
+  it('displays a logout button', function() {
+    browser.get('http://localhost:8080');
+    var myElement = element(by.id('logout'));
+    expect(myElement.isPresent()).toBeTruthy();
   });
 });

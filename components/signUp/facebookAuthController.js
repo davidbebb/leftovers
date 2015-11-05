@@ -6,7 +6,9 @@ leftoversApp.controller('FacebookAuthController', function($scope) {
         console.log('Login Failed!', error);
       } else {
         console.log('Authenticated successfully with payload:', authData);
-      }
+      };
+
+      location.reload();
     });
   };
 
@@ -23,10 +25,12 @@ leftoversApp.controller('FacebookAuthController', function($scope) {
 
     $scope.authData = authData;
     $scope.isLoggedIn = isLoggedIn;
+
   });
 
   $scope.logout = function() {
     ref.unauth();
+    location.reload();
   };
 
 });
