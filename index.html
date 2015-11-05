@@ -17,8 +17,9 @@
   <div ng-controller="FacebookAuthController as facebookCtrl">
     <button class='btn btn-class=warning' id='signup' ng-click='login()'>Sign Up with Facebook</button>
     <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
-    {{authData.facebook.displayName}}
-  </div>
+    <div id ='loggedInParent' ng-hide='!authData.facebook'>
+      <div id='loggedInUsername'>BOB{{authData.facebook.displayName}} </div>
+    </div>
   <div ng-controller="FacebookAuthController">
 
     <div ng-show="isLoggedIn === true">
