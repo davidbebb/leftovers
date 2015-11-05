@@ -10,6 +10,7 @@ leftoversApp.controller('SearchController', function($scope, $http) {
   var apiKey = "9m9bjXUNhUIE78Lf26Yby9bV5UE4X7zi";
   var search_url = "";
 
+<<<<<<< HEAD
   $scope.getIngredients = function() {
     return $scope.ingredients;
     console.log($scope.ingredients);
