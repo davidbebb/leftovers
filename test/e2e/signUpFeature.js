@@ -14,7 +14,8 @@ describe('User Sign up page', function() {
     browser.get('http://localhost:8080');
     var myElement = element(by.id('signup'));
     myElement.click();
-    
+    var welcomeText = element(by.id('welcome'));
+    expect(welcomeText.isPresent()).toBeTruthy();
   });
 
   it('displays a logout button', function() {
