@@ -7,7 +7,15 @@ leftoversApp.controller('SearchController', function($scope, $http) {
   var recipeId = '';
   var apiKey = '9m9bjXUNhUIE78Lf26Yby9bV5UE4X7zi';
   var searchUrl = '';
-  var dietId = '';
+
+  $scope.diet = {
+    option: '',
+  };
+
+  $scope.getDietID = function() {
+    var dietUrl = '&cuisine=' + $scope.diet.option;
+    return dietUrl;
+  };
 
   $http.get('components/search/meat.json').then(function(data) {
      $scope.meat = data.data;
@@ -52,9 +60,9 @@ leftoversApp.controller('SearchController', function($scope, $http) {
 
   $scope.addIngredient = function(ingredient) {
     $scope.ingredients.push(ingredient);
-    console.log($scope.ingredients);
+    var dietId = $scope.getDietID();
     var recipeId = '/recipes?any_kw=' + ($scope.ingredients).toString();
-    var searchUrl = 'http://api.bigoven.com' + recipeId + '&api_key=' +
+    var searchUrl = 'http://api.bigoven.com' + recipeId + dietId + '&api_key=' +
     apiKey + '&pg=1&rpp=15';
 
     $http.get(searchUrl).
@@ -64,7 +72,9 @@ leftoversApp.controller('SearchController', function($scope, $http) {
         error(function(data, status, headers, config) {
       });
 
+    $scope.ingredient = '';
     $scope.ingredients = [];
+    console.log(searchUrl);
   };
 
 });

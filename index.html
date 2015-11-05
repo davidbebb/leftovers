@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <form class="new-ingredient" ng-submit="addIngredient(ingredient)">
+      <form class="newIngredient" ng-submit="addIngredient(ingredient)">
         <input type="text" ng-model="ingredient" placeholder="choose ingredient">
         <button>Search Recipes</button>
 
@@ -95,19 +95,21 @@
         </div>
       </form>
 
-      <label>
-        <input type="radio" ng-model="diet" value="vegetarian">
-        Vegetarian
-      </label><br/>
-      <label>
-        <input type="radio" ng-model="diet" value="gluten">
-        Gluten-free
-      </label><br/>
-      <label>
-        <input type="radio" ng-model="diet" value="dairy-free">
-        Dairy-free
-      </label><br/>
-
+      <form>
+        <label>
+          <input type="radio" ng-model="diet.option" value="vegetarian" ng-change="getDietID()">
+          Vegetarian
+        </label><br/>
+        <label>
+          <input type="radio" ng-model="diet.option" value="gluten-free" ng-change="getDietID()">
+          Gluten-free
+        </label><br/>
+        <label>
+          <input type="radio" ng-model="diet.option" value="dairy-free" ng-change="getDietID()">
+          Dairy-free
+        </label><br/>
+        <!-- <tt>option = {{diet.option}}</tt><br/> -->
+      </form>
 
     </div>
 
