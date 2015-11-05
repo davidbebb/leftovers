@@ -1,5 +1,10 @@
 leftoversApp.controller('SearchController', function($scope, $http) {
 
+  $scope.hiddenDiv = false;
+  $scope.showDiv = function() {
+    $scope.hiddenDiv = !$scope.hiddenDiv;
+  };
+
   $scope.ingredients = [];
   $scope.posts = null;
   $scope.meat = ['chicken', 'beef', 'pork', 'turkey'];
