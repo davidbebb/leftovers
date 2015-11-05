@@ -13,41 +13,35 @@
     <script src='components/signUp/facebookAuthController.js'></script>
     <script src='components/search/searchController.js'></script>
 
-
-    <!-- <script>
-      // var Firebase = require("firebase");
-      var myFirebaseRef = new Firebase("https://leftovers-app.firebaseio.com/");
-    </script> -->
   </head>
   <body ng-controller="FacebookAuthController as facebookCtrl">
   <button class='btn btn-class=warning' id='signup' ng-click='login()' ng-hide='authData.facebook'>Sign Up with Facebook</button>
   <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
   <div ng-if='authData.facebook' class='navbar'><span>{{authData.facebook.displayName}}</span><img style='height:50px; width:50px'ng-src="{{authData.facebook.profileImageURL}}" alt=""></div>
 
-     <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
+    <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
 
-       <button class='btn btn-class=profile' id='profile' ng-click='profile()'>Search</button>
-
-       <div class="meat-container">
-         <div class="meat" ng-repeat="meatType in meat">
-           <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
-           {{ meatType }}
-         </div>
+      <div class="meat-container">
+        <div class="meat" ng-repeat="meatType in meat">
+          <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
+          {{ meatType }}
+        </div>
       </div>
 
-       <form class="new-ingredient" ng-submit="addIngredient(ingredient)">
-          <input type="text" ng-model="ingredient" placeholder="choose ingredient">
-          <button>Add ingredient</button>
+      <form class="new-ingredient" ng-submit="addIngredient(ingredient)">
+        <input type="text" ng-model="ingredient" placeholder="choose ingredient">
+        <button>Add ingredient</button>
 
-       <div class="recipe-container" ng-repeat="post in posts">
-         <img ng-src="{{ post.ImageURL120 }}" />{{ post.Title }}
-           <p>{{ post.Cuisine }}</p>
-           <p id="rating">{{ post.StarRating | number:1 }}</p>
-           <p id="recipe-id">{{ post.RecipeID }}</p>
-         <br>
-       </div>
+        <div class="recipe-container" ng-repeat="post in posts">
+          <img ng-src="{{ post.ImageURL120 }}" />{{ post.Title }}
+            <p>{{ post.Cuisine }}</p>
+            <p id="rating">{{ post.StarRating | number:1 }}</p>
+            <p id="recipe-id">{{ post.RecipeID }}</p>
+            <br>
+        </div>
 
-     </div>
+      </form>
+    </div>
 
   </body>
 </html>
