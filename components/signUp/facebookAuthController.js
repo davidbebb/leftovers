@@ -1,4 +1,5 @@
 leftoversApp.controller('FacebookAuthController', function($scope) {
+
   var ref = new Firebase('https://leftovers-app.firebaseio.com/');
   $scope.login = function() {
     ref.authWithOAuthPopup('facebook', function(error, authData) {
@@ -6,7 +7,7 @@ leftoversApp.controller('FacebookAuthController', function($scope) {
         console.log('Login Failed!', error);
       } else {
         console.log('Authenticated successfully with payload:', authData);
-      };
+      }
 
       location.reload();
     });
@@ -21,7 +22,7 @@ leftoversApp.controller('FacebookAuthController', function($scope) {
       isLoggedIn = true;
       console.log('Logged in as', authData.uid, isLoggedIn);
 
-    };
+    }
 
     $scope.authData = authData;
     $scope.isLoggedIn = isLoggedIn;

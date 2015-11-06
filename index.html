@@ -4,32 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>leftovers</title>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <script src="bower_components/firebase/firebase.js"></script>
-    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/firebase/firebase.js"></script>
+    <script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="/bower_components/checklist-model/checklist-model.js"></script>
+
     <script src="app.module.js"></script>
     <script src="app.route.js"></script>
-    <script src='components/signUp/facebookAuthController.js'></script>
+
+    <script src='./components/signUp/facebookAuthController.js'></script>
+    <script src='./components/search/searchController.js'></script>
+
     <link rel="stylesheet" type="text/css" href="./assets/css/login.css">
-
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   </head>
-  <body>
-    <div ng-controller="FacebookAuthController as facebookCtrl" ng-hide='authData.facebook'>
-      <div  ng-include="'/components/signUp/logInView.html'"></div>
+
+  <body ng-controller="FacebookAuthController as facebookCtrl">
+    <div ng-hide='authData.facebook'>
+      <div ng-include="'components/signUp/logInView.html'"></div>
     </div>
 
-  <div ng-controller="FacebookAuthController as facebookCtrl" ng-show='authData.facebook'>
-    <button class="btn btn-primary btn-large"  id='logout' ng-click='logout()'>Logout</button>
-    <div id ='loggedInParent' ng-hide='!authData.facebook'>
-      <div id='loggedInUsername'>BOB{{authData.facebook.displayName}} </div>
+    <div ng-show='authData.facebook'>
+      <button class="btn btn-primary btn-large" id='logout' ng-click='logout()'>Logout</button>
+      <p id='displayName'>{{authData.facebook.displayName}}</p>
     </div>
-  <div ng-controller="FacebookAuthController">
-    <div ng-show="isLoggedIn === true">
-      <div ng-include="'/components/signUp/facebookTestView.html'"></div>
+
+    <div ng-show='authData.facebook'>
+      <div ng-include="'components/search/search.html'"></div>
     </div>
-  </div>
+
   </body>
 </html>
