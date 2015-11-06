@@ -11,16 +11,15 @@ describe('User Sign up page', function() {
     expect(myElement.isPresent()).toBeTruthy();
   });
 
-  it('displays a logout button', function() {
+  it('does not display a logout button', function() {
     browser.get('http://localhost:8080');
     var myElement = element(by.id('logout'));
-    expect(myElement.isPresent()).toBeTruthy();
+    expect(myElement.isDisplayed()).toBeFalsy();
   });
 
-  it('username not displayed if user not logged in', function() {
+  it('user\'s name not displayed if user not logged in', function() {
     browser.get('http://localhost:8080');
-    var myElement = element(by.id('loggedInUsername'));
-    expect(myElement.getText()).toBeFalsy();
+    var myElement = element(by.id('displayName'));
+    expect(myElement.isDisplayed()).toBeFalsy();
   });
-
 });
