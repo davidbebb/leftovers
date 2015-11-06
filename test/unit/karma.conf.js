@@ -17,8 +17,10 @@ module.exports = function(config) {
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/checklist-model/checklist-model.js',
-      'components/search/searchController.js',
+      'bower_components/firebase/firebase.js',
+      'bower_components/angularfire/dist/angularfire.js',
       'app.module.js',
+      'components/search/searchController.js',
       'test/unit/*.spec.js',
       '*.js',
     ],
@@ -52,7 +54,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'PhantomJS'],
+    browsers: ['Chrome'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

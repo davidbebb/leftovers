@@ -1,26 +1,16 @@
 describe('SearchController', function() {
   beforeEach(module('LeftoversApp'));
 
-  var $controller;
+  var ctrl;
+  var $scope;
 
-  beforeEach(inject(function(_$controller_) {
-    // The injector unwraps the underscores (_) from around the parameter names when matching
-    $controller = _$controller_;
+  beforeEach(inject(function($controller) {
+    $scope = {};
+    ctrl = $controller('SearchController', {$scope: $scope});
   }));
 
-  describe('$scope.ingredients', function() {
-    var $scope;
-    var controller;
-
-    beforeEach(function() {
-      $scope = {};
-      controller = $controller('SearchController', { $scope: $scope });
-    });
-
-    it('initializes with an empty ingredient list', function() {
-      expect($scope.ingredients.length).toEqual(0);
-    });
-
+  it('initializes with an empty ingredient list', function() {
+    expect($scope.ingredients.length).toEqual(0);
   });
 
 });
