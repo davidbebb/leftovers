@@ -36,5 +36,5 @@ describe('User Sign up page', function() {
     var myElement = element(by.id('displayName'));
     expect(myElement.getText()).toEqual('Open Graph Test User');
   });
-
+  
 });
