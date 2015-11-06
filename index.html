@@ -2,6 +2,7 @@
 <html lang="eng" ng-app="LeftoversApp">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>leftovers</title>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -26,7 +27,6 @@
       <div id='loggedInUsername'>BOB{{authData.facebook.displayName}} </div>
     </div>
   <div ng-controller="FacebookAuthController">
-
     <div ng-show="isLoggedIn === true">
       <div ng-include="'/components/signUp/facebookTestView.html'"></div>
     </div>
