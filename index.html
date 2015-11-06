@@ -14,9 +14,12 @@
     <script src='components/signUp/facebookAuthController.js'></script>
   </head>
   <body>
-  <div ng-controller="FacebookAuthController as facebookCtrl">
-    <button class='btn btn-class=warning' id='signup' ng-click='login()'>Sign Up with Facebook</button>
-    <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
+    <div ng-controller="FacebookAuthController as facebookCtrl" ng-hide='authData.facebook'>
+      <div  ng-include="'/components/signUp/logInView.html'"></div>
+    </div>
+
+  <div ng-controller="FacebookAuthController as facebookCtrl" ng-show='authData.facebook'>
+    <button class="btn btn-primary btn-large"  id='logout' ng-click='logout()'>Logout</button>
     <div id ='loggedInParent' ng-hide='!authData.facebook'>
       <div id='loggedInUsername'>BOB{{authData.facebook.displayName}} </div>
     </div>
