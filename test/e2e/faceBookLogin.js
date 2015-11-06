@@ -6,7 +6,7 @@ describe('User Sign up page', function() {
   var password = $('#pass');
   var loginBtn = $('#u_0_2');
 
-  beforeEach(function() {
+  beforeAll(function() {
 
     browser.get('http://localhost:8080');
     var loginButton = element(by.id('signup'));
@@ -21,7 +21,7 @@ describe('User Sign up page', function() {
         password.sendKeys('leftovers');
         loginBtn.waitReady();
         loginBtn.click();
-        browser.driver.sleep(2000);
+        browser.driver.sleep(5000);
       });
 
       browser.switchTo().window(handles[0]).then(function() {
@@ -34,6 +34,11 @@ describe('User Sign up page', function() {
     expect(browser.getTitle()).toEqual('leftovers');
     var myElement = element(by.id('displayName'));
     expect(myElement.getText()).toEqual('Open Graph Test User');
+  });
+
+  it('displays a logout button', function() {
+    var myElement = element(by.id('logout'));
+    expect(myElement.isDisplayed()).toBeTruthy();
   });
 
 });

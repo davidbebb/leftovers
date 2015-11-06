@@ -2,128 +2,40 @@
 <html lang="eng" ng-app="LeftoversApp">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>leftovers</title>
 
     <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="/bower_components/firebase/firebase.js"></script>
     <script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="/bower_components/checklist-model/checklist-model.js"></script>
+
     <script src="app.module.js"></script>
     <script src="app.route.js"></script>
-    <script src='components/signUp/facebookAuthController.js'></script>
-    <script src='components/search/searchController.js'></script>
+
+    <script src='./components/signUp/facebookAuthController.js'></script>
+    <script src='./components/search/searchController.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   </head>
 
-<body>
-  <div ng-controller="FacebookAuthController as facebookCtrl">
-    <button class='btn btn-class=warning' id='signup' ng-click='login()'>Sign Up with Facebook</button>
-    <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
-    <div id ='loggedInParent' ng-hide='!authData.facebook'>
-      <div id='loggedInUsername'>{{authData.facebook.displayName}} </div>
+  <body ng-controller="FacebookAuthController as facebookCtrl">
+    <div ng-hide='authData.facebook'>
+      <div ng-include="'components/signUp/logInView.html'"></div>
     </div>
-  <div ng-controller="FacebookAuthController">
-    <div ng-show="isLoggedIn === true">
-      <div ng-include="'/components/signUp/facebookTestView.html'"></div>
+
+    <div ng-show='authData.facebook'>
+      <button class="btn btn-primary btn-large" id='logout' ng-click='logout()'>Logout</button>
+      <p id='displayName'>{{authData.facebook.displayName}}</p>
     </div>
-  </div>
 
-    <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
-      <div class = "ingredient-lists">
-        <div class="meat-container">
-          <button id="meat" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
-            Meat
-          </button>
-          <div class="meat" ng-repeat="meatType in meat" ng-show="hiddenMeatDiv">
-            <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
-            {{ meatType }}
-          </div>
-        </div>
-
-
-        <div class="veg-container">
-          <button id="veg" ng-click="hiddenVegDiv = !hiddenVegDiv">
-            Vegetables
-          </button>
-          <div class="veg" ng-repeat="vegType in veg" ng-show="hiddenVegDiv">
-            <input type="checkbox" checklist-model="getIngredients()" checklist-value="vegType" ng-change="check(vegType, checked)">
-            {{ vegType }}
-          </div>
-        </div>
-
-        <div class="fruits-container">
-          <button id="veg" ng-click="hiddenFruitDiv = !hiddenFruitDiv">
-            Fruits
-          </button>
-          <div class="fruit" ng-repeat="fruitType in fruits" ng-show="hiddenFruitDiv">
-            <input type="checkbox" checklist-model="getIngredients()" checklist-value="fruitType" ng-change="check(fruitType, checked)">
-            {{ fruitType }}
-          </div>
-        </div>
-
-        <div class="seafood-container">
-          <button id="seafood" ng-click="hiddenSeafoodDiv = !hiddenSeafoodDiv">
-            Seafood
-          </button>
-          <div class="seafood" ng-repeat="seafoodType in seafood" ng-show="hiddenSeafoodDiv">
-            <input type="checkbox" checklist-model="getIngredients()" checklist-value="seafoodType" ng-change="check(seafoodType, checked)">
-            {{ seafoodType }}
-          </div>
-        </div>
-
-        <div class="dairy-container">
-          <button id="dairy" ng-click="hiddenDairyDiv = !hiddenDairyDiv">
-            Dairy
-          </button>
-          <div class="dairy" ng-repeat="dairyType in dairy" ng-show="hiddenDairyDiv">
-            <input type="checkbox" checklist-model="getIngredients()" checklist-value="dairyType" ng-change="check(dairyType, checked)">
-            {{ dairyType }}
-          </div>
-        </div>
-
-        <div class="grains-container">
-          <button id="grains" ng-click="hiddenGrainsDiv = !hiddenGrainsDiv">
-            Grains
-          </button>
-          <div class="grains" ng-repeat="grainsType in grains" ng-show="hiddenGrainsDiv">
-            <input type="checkbox" checklist-model="getIngredients()" checklist-value="grainsType" ng-change="check(grainsType, checked)">
-            {{ grainsType }}
-          </div>
-        </div>
-      </div>
-
-      <form class="newIngredient" ng-submit="addIngredient(ingredient)">
-        <input type="text" ng-model="ingredient" placeholder="choose ingredient">
-        <button>Search Recipes</button>
-
-        <br>
-        <form>
-          <label>
-            <input type="radio" ng-model="diet.option" value="vegetarian" ng-change="getDietID()">
-            Vegetarian
-          </label><br/>
-          <label>
-            <input type="radio" ng-model="diet.option" value="gluten-free" ng-change="getDietID()">
-            Gluten-free
-          </label><br/>
-          <label>
-            <input type="radio" ng-model="diet.option" value="dairy-free" ng-change="getDietID()">
-            Dairy-free
-          </label><br/>
-          <!-- <tt>option = {{diet.option}}</tt><br/> -->
-        </form>
-
-        <div class="recipe-container" ng-repeat="post in posts">
-          <img ng-src="{{ post.ImageURL120 }}" />{{ post.Title }}
-            <p>{{ post.Cuisine }}</p>
-            <p id="rating">{{ post.StarRating | number:1 }}</p>
-            <p id="recipe-id">{{ post.RecipeID }}</p>
-            <br>
-        </div>
-      </form>
+    <div ng-show='authData.facebook'>
+      <div ng-include="'components/search/search.html'"></div>
     </div>
+
   </body>
 </html>
