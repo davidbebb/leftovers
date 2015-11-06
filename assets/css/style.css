@@ -1,0 +1,23 @@
+.meat-container {
+  display: inline-block;
+}
+
+.veg-container {
+  display: inline-block;
+}
+
+.fruits-container {
+  display: inline-block;
+}
+
+.seafood-container {
+  display: inline-block;
+}
+
+.dairy-container {
+  display: inline-block;
+}
+
+.grains-container {
+  display: inline-block;
+}
