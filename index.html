@@ -95,8 +95,11 @@
         </div>
       </div>
 
-      <form class="newIngredient" ng-submit="addIngredient(ingredient)">
-        <input type="text" ng-model="ingredient" placeholder="choose ingredient">
+      <form class="newIngredient" ng-submit="addIngredient(searchCtrl.ingredient, searchCtrl.excluded)">
+        Something that doesn't agree with you? You can exclude up to three ingredients here!
+        <input type="text" ng-model="searchCtrl.excluded" placeholder="Ingredients to exclude">
+        <br>
+        <input type="text" ng-model="searchCtrl.ingredient" placeholder="What's in your fridge?">
         <button>Search Recipes</button>
 
         <br>

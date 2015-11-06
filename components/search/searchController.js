@@ -2,6 +2,7 @@ leftoversApp.controller('SearchController', function($scope, $http) {
 
   $scope.ingredients = [];
   $scope.posts = null;
+  $scope.excluded = [];
 
   var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
   var recipeId = '';
@@ -54,18 +55,23 @@ leftoversApp.controller('SearchController', function($scope, $http) {
     if (index < 0 && checked) {
       $scope.ingredients.push(value);
     }
-
-    console.log($scope.ingredients);
   };
 
-  $scope.addIngredient = function(ingredient) {
-    $scope.ingredients.push(ingredient);
+  $scope.url = function() {
     var dietId = $scope.getDietID();
+    var excludedId = '&exclude_ing=' + $scope.excluded.toString();
     var recipeId = '/recipes?any_kw=' + ($scope.ingredients).toString();
-    var searchUrl = 'http://api.bigoven.com' + recipeId + dietId + '&api_key=' +
-    apiKey + '&pg=1&rpp=15';
+    var searchUrl = 'http://api.bigoven.com' + recipeId + dietId + excludedId +
+    '&api_key=' + apiKey + '&pg=1&rpp=15';
+    return searchUrl;
+  };
 
-    $http.get(searchUrl).
+  $scope.addIngredient = function(ingredient, exclusion) {
+    $scope.ingredients.push(ingredient);
+    $scope.excluded.push(exclusion);
+    var url = $scope.url();
+
+    $http.get(url).
       success(function(data, status, headers, config) {
         $scope.posts = data.Results;
       }).
@@ -74,7 +80,7 @@ leftoversApp.controller('SearchController', function($scope, $http) {
 
     $scope.ingredient = '';
     $scope.ingredients = [];
-    console.log(searchUrl);
+    console.log(url);
   };
 
 });
