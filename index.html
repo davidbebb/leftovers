@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>leftovers</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+
     <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="/bower_components/firebase/firebase.js"></script>
     <script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
@@ -13,12 +16,20 @@
     <script src="app.route.js"></script>
     <script src='components/signUp/facebookAuthController.js'></script>
     <script src='components/search/searchController.js'></script>
-
   </head>
-  <body ng-controller="FacebookAuthController as facebookCtrl">
-  <button class='btn btn-class=warning' id='signup' ng-click='login()' ng-hide='authData.facebook'>Sign Up with Facebook</button>
-  <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
-  <div ng-if='authData.facebook' class='navbar'><span>{{authData.facebook.displayName}}</span><img style='height:50px; width:50px'ng-src="{{authData.facebook.profileImageURL}}" alt=""></div>
+
+<body>
+  <div ng-controller="FacebookAuthController as facebookCtrl">
+    <button class='btn btn-class=warning' id='signup' ng-click='login()'>Sign Up with Facebook</button>
+    <button class='btn btn-class=error' id='logout' ng-click='logout()'>Logout</button>
+    <div id ='loggedInParent' ng-hide='!authData.facebook'>
+      <div id='loggedInUsername'>{{authData.facebook.displayName}} </div>
+    </div>
+  <div ng-controller="FacebookAuthController">
+    <div ng-show="isLoggedIn === true">
+      <div ng-include="'/components/signUp/facebookTestView.html'"></div>
+    </div>
+  </div>
 
     <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
       <div class = "ingredient-lists">
@@ -113,8 +124,6 @@
             <br>
         </div>
       </form>
-
     </div>
-
   </body>
 </html>

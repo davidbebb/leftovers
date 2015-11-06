@@ -1,1 +1,1 @@
-var leftoversApp = angular.module('LeftoversApp', ['checklist-model']);
+var leftoversApp = angular.module('LeftoversApp', ['checklist-model', 'ngRoute', 'ngAnimate']);
