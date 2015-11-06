@@ -16,8 +16,11 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'test/unit/*Spec.js',
-      '*.js'
+      'bower_components/checklist-model/checklist-model.js',
+      'components/search/searchController.js',
+      'app.module.js',
+      'test/unit/*.spec.js',
+      '*.js',
     ],
 
     // list of files to exclude
@@ -57,6 +60,6 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultanous
-    concurrency: Infinity
+    concurrency: Infinity,
   });
 };
