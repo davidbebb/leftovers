@@ -1,3 +1,1 @@
-var leftoversApp = angular.module('LeftoversApp', [function() {
-
-}]);
+var leftoversApp = angular.module('LeftoversApp', ['ngRoute', 'ngAnimate']);
