@@ -21,6 +21,7 @@ module.exports = function(config) {
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
       'app.module.js',
+      'components/search/secrets.js',
       'components/search/searchController.js',
       'test/unit/*.spec.js',
       '*.js',

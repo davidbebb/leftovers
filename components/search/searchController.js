@@ -3,11 +3,9 @@ leftoversApp.controller('SearchController', function($scope, $http) {
   $scope.ingredients = [];
   $scope.posts = null;
   $scope.excluded = [];
+  $scope.recipeId;
 
   var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
-  var recipeId = '';
-  var apiKey = '9m9bjXUNhUIE78Lf26Yby9bV5UE4X7zi';
-  var searchUrl = '';
 
   $scope.diet = {
     option: '',
@@ -58,10 +56,10 @@ leftoversApp.controller('SearchController', function($scope, $http) {
   };
 
   $scope.url = function() {
-    var dietId = $scope.getDietID();
-    var excludedId = '&exclude_ing=' + $scope.excluded.toString();
-    var recipeId = '/recipes?any_kw=' + ($scope.ingredients).toString();
-    var searchUrl = 'http://api.bigoven.com' + recipeId + dietId + excludedId +
+    var dietOpt = $scope.getDietID();
+    var excludedOpt = '&exclude_ing=' + $scope.excluded.toString();
+    var recipeOpt = '/recipes?any_kw=' + ($scope.ingredients).toString();
+    var searchUrl = 'http://api.bigoven.com' + recipeOpt + dietOpt + excludedOpt +
     '&api_key=' + apiKey + '&pg=1&rpp=15';
     return searchUrl;
   };
@@ -74,6 +72,7 @@ leftoversApp.controller('SearchController', function($scope, $http) {
     $http.get(url).
       success(function(data, status, headers, config) {
         $scope.posts = data.Results;
+        console.log($scope.posts);
       }).
         error(function(data, status, headers, config) {
       });
@@ -81,6 +80,20 @@ leftoversApp.controller('SearchController', function($scope, $http) {
     $scope.ingredient = '';
     $scope.ingredients = [];
     console.log(url);
+  };
+
+  $scope.getRecipe = function() {
+    console.log($scope.recipeId);
+    var recipeUrl = "http://api.bigoven.com/recipe/" + $scope.recipeId + "?api_key=" + apiKey;
+
+    $http.get(recipeUrl).
+      success(function(data, status, headers, config) {
+        $scope.recipe = data;
+        console.log($scope.recipe);
+      }).
+        error(function(data, status, headers, config) {
+      });
+    console.log(recipeUrl);
   };
 
 });

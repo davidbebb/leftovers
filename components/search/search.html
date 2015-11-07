@@ -91,10 +91,27 @@
 
     <div class="recipe-container" ng-repeat="post in posts">
       <img ng-src="{{ post.ImageURL120 }}" />{{ post.Title }}
+
         <p>{{ post.Cuisine }}</p>
         <p id="rating">{{ post.StarRating | number:1 }}</p>
-        <p id="recipe-id">{{ post.RecipeID }}</p>
+        <p id="recipe-id" ng-model="searchCtrl.recipeId">{{ post.RecipeID }}</p>
         <br>
+
+        <form class="getRecipe" ng-submit="getRecipe(searchCtrl.recipeId)">
+          <button>Get this recipe!</button>
+        <form>
+
+        <!-- <div class="selected-recipe">
+          <img ng-src="{{ recipe.ImageURL }}" />{{ recipe.Title }}
+          <p>Ingredients:</p>
+          <div class="ingredients" ng-repeat="ingredient in recipe">
+          {{ ingredient.Name }}
+          </div>
+          <br>
+          <p>Instructions: {{ recipe.Instructions }}</p>
+        </div> -->
+
     </div>
+
   </form>
 </div>
