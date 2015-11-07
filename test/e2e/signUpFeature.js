@@ -21,5 +21,6 @@ describe('User Sign up page', function() {
     browser.get('http://localhost:8080');
     var myElement = element(by.id('displayName'));
     expect(myElement.isDisplayed()).toBeFalsy();
+
   });
 });
