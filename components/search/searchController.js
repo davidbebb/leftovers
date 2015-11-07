@@ -3,7 +3,7 @@ leftoversApp.controller('SearchController', function($scope, $http) {
   $scope.ingredients = [];
   $scope.posts = null;
   $scope.excluded = [];
-  $scope.recipeId;
+  // $scope.recipeId = null;
 
   var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
 
@@ -82,13 +82,14 @@ leftoversApp.controller('SearchController', function($scope, $http) {
     console.log(url);
   };
 
-  $scope.getRecipe = function() {
-    console.log($scope.recipeId);
-    var recipeUrl = "http://api.bigoven.com/recipe/" + $scope.recipeId + "?api_key=" + apiKey;
+  $scope.getRecipe = function(recipeID) {
+    console.log(recipeID);
+    var recipeUrl = "http://api.bigoven.com/recipe/" + recipeID + "?api_key=" + apiKey;
 
     $http.get(recipeUrl).
       success(function(data, status, headers, config) {
         $scope.recipe = data;
+        $scope.recipeIngredients = data.Ingredients;
         console.log($scope.recipe);
       }).
         error(function(data, status, headers, config) {

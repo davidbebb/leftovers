@@ -94,22 +94,22 @@
 
         <p>{{ post.Cuisine }}</p>
         <p id="rating">{{ post.StarRating | number:1 }}</p>
-        <p id="recipe-id" ng-model="searchCtrl.recipeId">{{ post.RecipeID }}</p>
+        <p id="recipe-id" ng-model="post.RecipeID">{{ post.RecipeID }}</p>
         <br>
 
-        <form class="getRecipe" ng-submit="getRecipe(searchCtrl.recipeId)">
+        <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
           <button>Get this recipe!</button>
         <form>
 
-        <!-- <div class="selected-recipe">
+        <div class="selected-recipe" ng-show="hiddenRecipeDiv">
           <img ng-src="{{ recipe.ImageURL }}" />{{ recipe.Title }}
           <p>Ingredients:</p>
-          <div class="ingredients" ng-repeat="ingredient in recipe">
+          <div class="ingredients" ng-repeat="ingredient in recipeIngredients">
           {{ ingredient.Name }}
           </div>
           <br>
           <p>Instructions: {{ recipe.Instructions }}</p>
-        </div> -->
+        </div>
 
     </div>
 
