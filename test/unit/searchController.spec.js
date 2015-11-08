@@ -29,22 +29,35 @@ describe('SearchController', function() {
   });
 
   describe('factory: ingredientLists', function() {
+
     it('Should define methods', function() {
       expect(factory.fetch).toBeDefined();
       expect(factory.fetch).toEqual(jasmine.any(Function));
     });
-
   });
 
-  // describe('$scope.addIngredients', function() {
-  //
-  //   var items = [
-  //     {
-  //       Cuisine: 'seafood',
-  //       ImageURL120:
-  //       'http://redirect.bigoven.com/pics/rs/120/lobster-bisque-17.jpg',
-  //       StarRating: 4.6,
-  //       Title: 'Lobster Bisque',
-  //     }
-  //   ];
+  describe('$scope.addIngredients', function() {
+    var items = {
+      ResultCount: 1,
+      Results: [
+        {
+          Cuisine: 'seafood',
+          ImageURL120:
+          'http://redirect.bigoven.com/pics/rs/120/lobster-bisque-17.jpg',
+          StarRating: 4.6,
+          Title: 'Lobster Bisque',
+        }
+      ],
+    };
+    beforeEach(function() {
+      $httpBackend
+      .whenGET(/http:\/\/api.bigoven.com\/recipes\?any_kw=lobster*/).respond(200, items);
+    });
+
+    it('returns search results', function() {
+      scope.addIngredient('lobster');
+      $httpBackend.flush();
+      expect(scope.posts).toEqual(items.Results);
+    });
+  });
 });

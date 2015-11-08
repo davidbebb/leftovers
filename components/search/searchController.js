@@ -20,6 +20,13 @@ leftoversApp.controller('SearchController', function($scope, $http,
     return dietUrl;
   };
 
+  // $scope.getList = function(file) {
+  //   ingredientLists.fetch(file).then(function(data) {
+  //     $scope.ingredientPreset = data;
+  //   });
+  //   console.log('getList ' + file);
+  // };
+
   ingredientLists.fetch('meat').then(function(data) {
     $scope.meat = data;
   });
@@ -76,7 +83,6 @@ leftoversApp.controller('SearchController', function($scope, $http,
     $http.get(url).
       success(function(data, status, headers, config) {
         $scope.posts = data.Results;
-        console.log($scope.posts);
       }).
         error(function(data, status, headers, config) {
       });
