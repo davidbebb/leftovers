@@ -6,7 +6,7 @@
       <button id="meat" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
         Meat
       </button>
-      <div class="meat" ng-repeat="meatType in getList(meat)" ng-show="hiddenMeatDiv">
+      <div class="meat" ng-repeat="meatType in meat" ng-show="hiddenMeatDiv">
         <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
         {{ meatType }}
       </div>
