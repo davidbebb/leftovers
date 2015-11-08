@@ -1,4 +1,5 @@
-leftoversApp.controller('SearchController', function($scope, $http) {
+leftoversApp.controller('SearchController', function($scope, $http,
+                        ingredientLists) {
 
   $scope.ingredients = [];
   $scope.posts = null;
@@ -19,28 +20,28 @@ leftoversApp.controller('SearchController', function($scope, $http) {
     return dietUrl;
   };
 
-  $http.get('components/search/meat.json').then(function(data) {
-     $scope.meat = data.data;
-   });
-
-  $http.get('components/search/veg.json').then(function(data) {
-    $scope.veg = data.data;
+  ingredientLists.fetch('meat').then(function(data) {
+    $scope.meat = data;
   });
 
-  $http.get('components/search/fruits.json').then(function(data) {
-    $scope.fruits = data.data;
+  ingredientLists.fetch('veg').then(function(data) {
+    $scope.veg = data;
   });
 
-  $http.get('components/search/seafood.json').then(function(data) {
-    $scope.seafood = data.data;
+  ingredientLists.fetch('fruits').then(function(data) {
+    $scope.fruits = data;
   });
 
-  $http.get('components/search/dairy.json').then(function(data) {
-    $scope.dairy = data.data;
+  ingredientLists.fetch('seafood').then(function(data) {
+    $scope.seafood = data;
   });
 
-  $http.get('components/search/baking_grain.json').then(function(data) {
-    $scope.grains = data.data;
+  ingredientLists.fetch('dairy').then(function(data) {
+    $scope.dairy = data;
+  });
+
+  ingredientLists.fetch('baking_grain').then(function(data) {
+    $scope.grains = data;
   });
 
   $scope.getIngredients = function() {
@@ -62,8 +63,8 @@ leftoversApp.controller('SearchController', function($scope, $http) {
     var dietOpt = $scope.getDietID();
     var excludedOpt = '&exclude_ing=' + $scope.excluded.toString();
     var recipeOpt = '/recipes?any_kw=' + ($scope.ingredients).toString();
-    var searchUrl = 'http://api.bigoven.com' + recipeOpt + dietOpt + excludedOpt +
-    '&api_key=' + apiKey + '&pg=1&rpp=15';
+    var searchUrl = 'http://api.bigoven.com' + recipeOpt + dietOpt +
+                    excludedOpt + '&api_key=' + apiKey + '&pg=1&rpp=15';
     return searchUrl;
   };
 
@@ -87,7 +88,8 @@ leftoversApp.controller('SearchController', function($scope, $http) {
 
   $scope.getRecipe = function(recipeID) {
     console.log(recipeID);
-    var recipeUrl = "http://api.bigoven.com/recipe/" + recipeID + "?api_key=" + apiKey;
+    var recipeUrl = 'http://api.bigoven.com/recipe/' + recipeID + '?api_key=' +
+                    apiKey;
 
     $http.get(recipeUrl).
       success(function(data, status, headers, config) {
