@@ -3,12 +3,15 @@ leftoversApp.controller('SearchController', function($scope, $http) {
   $scope.ingredients = [];
   $scope.posts = null;
   $scope.excluded = [];
-  // $scope.recipeId = null;
 
   var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
 
   $scope.diet = {
     option: '',
+  };
+
+  $scope.clearDiet = function() {
+    $scope.diet = false;
   };
 
   $scope.getDietID = function() {
@@ -94,7 +97,17 @@ leftoversApp.controller('SearchController', function($scope, $http) {
       }).
         error(function(data, status, headers, config) {
       });
+
     console.log(recipeUrl);
+  };
+
+  $scope.addFavorite = function(title, ingredients, instructions) {
+    console.log(title);
+    ref.push({
+      title: title,
+      ingredients: ingredients,
+      instructions: instructions,
+    });
   };
 
 });
