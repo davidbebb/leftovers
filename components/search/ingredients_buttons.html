@@ -1,10 +1,11 @@
 <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
+  What's in your fridge?
   <div class ="ingredients-buttons">
 
     <div class ="ingredient-lists">
       <div class="ingredient-lists-row1">
         <div class="meat-container">
-          <button id="meat" class="btn btn-primary btn-lg" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
+          <button id="meat" class="btn btn-primary btn-md" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
             <img src='./../../assets/img/steak(1).png'>
             <br>Meat
           </button>
@@ -15,8 +16,9 @@
         </div>
 
         <div class="veg-container">
-          <button id="veg" class="btn btn-primary btn-lg" ng-click="hiddenVegDiv = !hiddenVegDiv">
-            Vegetables
+          <button id="veg" class="btn btn-primary btn-md" ng-click="hiddenVegDiv = !hiddenVegDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Vegetables
           </button>
           <div class="veg" ng-repeat="vegType in veg" ng-show="hiddenVegDiv">
             <input type="checkbox" checklist-model="getIngredients()" checklist-value="vegType" ng-change="check(vegType, checked)">
@@ -25,8 +27,9 @@
         </div>
 
         <div class="fruits-container">
-          <button id="veg" class="btn btn-primary btn-lg" ng-click="hiddenFruitDiv = !hiddenFruitDiv">
-            Fruits
+          <button id="veg" class="btn btn-primary btn-md" ng-click="hiddenFruitDiv = !hiddenFruitDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Fruits
           </button>
           <div class="fruit" ng-repeat="fruitType in fruits" ng-show="hiddenFruitDiv">
             <input type="checkbox" checklist-model="getIngredients()" checklist-value="fruitType" ng-change="check(fruitType, checked)">
@@ -37,8 +40,9 @@
       <br/>
       <div class="ingredient-lists-row2">
         <div class="seafood-container">
-          <button id="seafood" ng-click="hiddenSeafoodDiv = !hiddenSeafoodDiv">
-            Seafood
+          <button id="seafood" class="btn btn-primary btn-md" ng-click="hiddenSeafoodDiv = !hiddenSeafoodDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Seafood
           </button>
           <div class="seafood" ng-repeat="seafoodType in seafood" ng-show="hiddenSeafoodDiv">
             <input type="checkbox" checklist-model="getIngredients()" checklist-value="seafoodType" ng-change="check(seafoodType, checked)">
@@ -47,8 +51,9 @@
         </div>
 
         <div class="dairy-container">
-          <button id="dairy" ng-click="hiddenDairyDiv = !hiddenDairyDiv">
-            Dairy
+          <button id="dairy" class="btn btn-primary btn-md" ng-click="hiddenDairyDiv = !hiddenDairyDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Dairy
           </button>
           <div class="dairy" ng-repeat="dairyType in dairy" ng-show="hiddenDairyDiv">
             <input type="checkbox" checklist-model="getIngredients()" checklist-value="dairyType" ng-change="check(dairyType, checked)">
@@ -57,8 +62,9 @@
         </div>
 
         <div class="grains-container">
-          <button id="grains" ng-click="hiddenGrainsDiv = !hiddenGrainsDiv">
-            Grains
+          <button id="grains" class="btn btn-primary btn-md" ng-click="hiddenGrainsDiv = !hiddenGrainsDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Grains
           </button>
           <div class="grains" ng-repeat="grainsType in grains" ng-show="hiddenGrainsDiv">
             <input type="checkbox" checklist-model="getIngredients()" checklist-value="grainsType" ng-change="check(grainsType, checked)">

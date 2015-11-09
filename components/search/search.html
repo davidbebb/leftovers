@@ -1,10 +1,86 @@
 <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
+  What's in your fridge?
+  <div class ="ingredients-buttons">
+
+    <div class ="ingredient-lists">
+      <div class="ingredient-lists-row1">
+        <div class="meat-container">
+          <button id="meat" class="btn btn-primary btn-md" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Meat
+          </button>
+          <div class="meat" ng-repeat="meatType in meat" ng-show="hiddenMeatDiv">
+            <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
+            {{ meatType }}
+          </div>
+        </div>
+
+        <div class="veg-container">
+          <button id="veg" class="btn btn-primary btn-md" ng-click="hiddenVegDiv = !hiddenVegDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Vegetables
+          </button>
+          <div class="veg" ng-repeat="vegType in veg" ng-show="hiddenVegDiv">
+            <input type="checkbox" checklist-model="getIngredients()" checklist-value="vegType" ng-change="check(vegType, checked)">
+            {{ vegType }}
+          </div>
+        </div>
+
+        <div class="fruits-container">
+          <button id="veg" class="btn btn-primary btn-md" ng-click="hiddenFruitDiv = !hiddenFruitDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Fruits
+          </button>
+          <div class="fruit" ng-repeat="fruitType in fruits" ng-show="hiddenFruitDiv">
+            <input type="checkbox" checklist-model="getIngredients()" checklist-value="fruitType" ng-change="check(fruitType, checked)">
+            {{ fruitType }}
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="ingredient-lists-row2">
+        <div class="seafood-container">
+          <button id="seafood" class="btn btn-primary btn-md" ng-click="hiddenSeafoodDiv = !hiddenSeafoodDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Seafood
+          </button>
+          <div class="seafood" ng-repeat="seafoodType in seafood" ng-show="hiddenSeafoodDiv">
+            <input type="checkbox" checklist-model="getIngredients()" checklist-value="seafoodType" ng-change="check(seafoodType, checked)">
+            {{ seafoodType }}
+          </div>
+        </div>
+
+        <div class="dairy-container">
+          <button id="dairy" class="btn btn-primary btn-md" ng-click="hiddenDairyDiv = !hiddenDairyDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Dairy
+          </button>
+          <div class="dairy" ng-repeat="dairyType in dairy" ng-show="hiddenDairyDiv">
+            <input type="checkbox" checklist-model="getIngredients()" checklist-value="dairyType" ng-change="check(dairyType, checked)">
+            {{ dairyType }}
+          </div>
+        </div>
+
+        <div class="grains-container">
+          <button id="grains" class="btn btn-primary btn-md" ng-click="hiddenGrainsDiv = !hiddenGrainsDiv">
+            <img src='./../../assets/img/steak(1).png'>
+            <br>Grains
+          </button>
+          <div class="grains" ng-repeat="grainsType in grains" ng-show="hiddenGrainsDiv">
+            <input type="checkbox" checklist-model="getIngredients()" checklist-value="grainsType" ng-change="check(grainsType, checked)">
+            {{ grainsType }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class ="search-container">
-  <form class="newIngredient" ng-submit="addIngredient(searchCtrl.ingredient, searchCtrl.excluded)">
-    <input type="text" ng-model="searchCtrl.excluded" placeholder="Ingredients to exclude">
+  <form class="newIngredient" ng-submit="addIngredient(ingredient, excluded)">
+    <input type="text" ng-model="excluded" placeholder="Ingredients to exclude">
     <br>
-    <input type="text" ng-model="searchCtrl.ingredient" placeholder="What's in your fridge?">
+    <input type="text" ng-model="ingredient" placeholder="What's in your fridge?">
     <button>Search Recipes</button>
+  </form>
 
     <br>
     <form>
@@ -53,4 +129,4 @@
       </form>
     </div>
   </div>
-  </div>
+</div>
