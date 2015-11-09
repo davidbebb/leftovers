@@ -2,9 +2,17 @@
     padding-top: 50px;
 }
 
-.search-container {
+.ingredients-buttons {
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    text-align: center;
+    background-size: cover;
+}
+
+.search-container {
     padding-bottom: 50px;
     text-align: center;
     background-size: cover;
+    padding-left: 50px;
+    padding-right: 50px
+
 }

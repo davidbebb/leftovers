@@ -43,8 +43,19 @@
       <p id='displayName'>{{authData.facebook.displayName}}</p>
     </div> -->
 
+
+  <div class ='search_stuff'>
+    <div ng-show='authData.facebook'>
+      <div ng-include="'components/search/ingredients_buttons.html'"></div>
+    </div>
+
     <div ng-show='authData.facebook'>
       <div ng-include="'components/search/search.html'"></div>
     </div>
+  </div>
+
+
+
+
   </body>
 </html>
