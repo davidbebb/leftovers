@@ -18,7 +18,7 @@ leftoversApp.controller('SearchController', function($scope, $http,
   };
 
   $scope.clearDiet = function() {
-    $scope.diet = false;
+    $scope.diet.option = '';
   };
 
   $scope.getDietID = function() {
@@ -95,6 +95,7 @@ leftoversApp.controller('SearchController', function($scope, $http,
 
     $scope.ingredient = '';
     $scope.ingredients = [];
+    $scope.excluded = [];
     console.log(url);
   };
 
