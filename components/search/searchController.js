@@ -5,6 +5,8 @@ leftoversApp.controller('SearchController', function($scope, $uibModal, $log, $h
 
  $scope.items = ['item1', 'item2', 'item3'];
 
+ $scope.veggies = []
+
 
   $scope.animationsEnabled = true;
 
@@ -12,12 +14,12 @@ leftoversApp.controller('SearchController', function($scope, $uibModal, $log, $h
 
      var modalInstance = $uibModal.open({
        animation: $scope.animationsEnabled,
-       templateUrl: 'veg.html',
+       templateUrl: "veg.html",
        controller: 'ModalInstanceCtrl',
        size: size,
        resolve: {
-         items: function () {
-           return $scope.items;
+         veggies: function () {
+           return $scope.veggies;
          }
        }
      });
@@ -160,18 +162,21 @@ leftoversApp.controller('SearchController', function($scope, $uibModal, $log, $h
 
 
 
-leftoversApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+leftoversApp.controller('ModalInstanceCtrl', function ($scope,$controller, $uibModalInstance, veggies) {
+    $controller('SearchController', {$scope: $scope}); //This works
 
-  $scope.items = items;
+  $scope.veggies = veggies;
   $scope.selected = {
-    item: $scope.items[0]
+    veg: $scope.veggies[0]
   };
 
   $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
+    $uibModalInstance.close($scope.selected.veg);
+    console.log($scope.ingredients)
   };
 
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
+
 });
