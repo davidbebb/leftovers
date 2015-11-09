@@ -16,15 +16,31 @@
         </div>
 
         <div class="veg-container">
-          <button id="veg" class="btn btn-primary btn-md" ng-click="hiddenVegDiv = !hiddenVegDiv">
+      <script type="text/ng-template" id="veg.html">
+
+
+      <div class="modal-header">
+            <h3 class="modal-title">Please select vegetables</h3>
+        </div>
+        <div class="modal-body">
+          <div class="veg" ng-repeat="vegType in veg">
+            <input type="checkbox" checklist-model="getIngredients()" checklist-value="vegType" ng-change="check(vegType, checked)">
+                {{ vegType }}
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+
+
+      </script>
+          <button id="veg" class="btn btn-primary btn-md" ng-click="open()">
             <img src='./../../assets/img/steak(1).png'>
             <br>Vegetables
           </button>
-          <div class="veg" ng-repeat="vegType in veg" ng-show="hiddenVegDiv">
-            <input type="checkbox" checklist-model="getIngredients()" checklist-value="vegType" ng-change="check(vegType, checked)">
-            {{ vegType }}
-          </div>
         </div>
+
 
         <div class="fruits-container">
           <button id="veg" class="btn btn-primary btn-md" ng-click="hiddenFruitDiv = !hiddenFruitDiv">
