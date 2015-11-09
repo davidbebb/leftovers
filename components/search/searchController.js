@@ -5,7 +5,13 @@ leftoversApp.controller('SearchController', function($scope, $http,
   $scope.posts = null;
   $scope.excluded = [];
 
+  var apiKey = '';
   var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
+  var apiRef = new Firebase('https://leftovers-app.firebaseio.com/secrets');
+
+  apiRef.once('value', function(data) {
+    return apiKey = data.val();
+  });
 
   $scope.diet = {
     option: '',
