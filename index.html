@@ -11,10 +11,12 @@
     <script src="/bower_components/firebase/firebase.js"></script>
     <script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="/bower_components/checklist-model/checklist-model.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/npm.js"></script>
 
     <script src="app.module.js"></script>
     <script src="app.route.js"></script>
-
     <script src='./components/signUp/facebookAuthController.js'></script>
     <script src="./components/search/secrets.js"></script>
     <script src='./components/search/ingredientFactory.js'></script>
@@ -23,19 +25,23 @@
 
     <link rel="stylesheet" type="text/css" href="./assets/css/login.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/search.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   </head>
 
 
   <body ng-controller="FacebookAuthController as facebookCtrl">
+
+    <div ng-include="'components/navBar/navBar.html'"></div>
+
     <div ng-hide='authData.facebook'>
       <div ng-include="'components/signUp/logInView.html'"></div>
     </div>
 
-    <div ng-show='authData.facebook'>
+    <!-- <div ng-show='authData.facebook'>
       <button class="btn btn-primary btn-large" id='logout' ng-click='logout()'>Logout</button>
       <p id='displayName'>{{authData.facebook.displayName}}</p>
-    </div>
+    </div> -->
 
     <div ng-show='authData.facebook'>
       <div ng-include="'components/search/search.html'"></div>
