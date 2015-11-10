@@ -4,11 +4,13 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     $scope.ingredients = [];
     $scope.posts = null;
     $scope.excludedIngredients = [];
+    $scope.favCount = 0;
 
     var apiKey = '';
     var fbID = '';
     var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
     var apiRef = new Firebase('https://leftovers-app.firebaseio.com/secrets');
+    var favRef = new Firebase('https://leftovers-app.firebaseio.com/users/' + $rootScope.fbID + '/favorites');
 
     apiRef.once('value', function(data) {
       return apiKey = data.val();
@@ -50,6 +52,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     ingredientLists.fetch('baking_grain').then(function(data) {
       $scope.grains = data;
     });
+
     $scope.getIngredients = function() {
       return $scope.ingredients;
     };
@@ -110,17 +113,33 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       console.log(recipeUrl);
     };
 
-    $scope.$on('$viewContentLoaded', function() {
-      alert('Stuff has loaded');
+    $scope.addFavorite = function(title, recipeID) {
+      favRef.child(recipeID).set({title});
+      $scope.favCount++;
+    };
+
+    $scope.faves = [];
+
+    favRef.on('value', function(snapshot) {
+      console.log(snapshot.val());
+      snapshot.forEach(function(childSnapshot) {
+        $scope.faves.push(childSnapshot.val().title, childSnapshot.key());
+        console.log($scope.faves);
+      });
     });
 
-    // $scope.addFavorite = function(title, ingredients, instructions) {
-    //   console.log(title);
-    //   userRef.set({
-    //     title: title,
-    //     //here need to get all the data of the selected recipe
-    //     // ingredients: ingredients,
-    //     // instructions: instructions
-    //   });
-    // };
+    $scope.favesHash = function() {
+      var obj = {};
+      for (index in $scope.faves) {
+        if (index % 2 == 0) {
+          var key = $scope.faves[index];
+          index++;
+          var val = $scope.faves[index++];
+          obj[key] = val;
+        }
+      }
+
+      return $scope.obj = obj;
+    };
+
 }]);
