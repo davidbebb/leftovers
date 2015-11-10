@@ -29,13 +29,6 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       return dietUrl;
     };
 
-    // $scope.getList = function(file) {
-    //   ingredientLists.fetch(file).then(function(data) {
-    //     $scope.ingredientPreset = data;
-    //   });
-    //   console.log('getList ' + file);
-    // };
-
     ingredientLists.fetch('meat').then(function(data) {
       $scope.meat = data;
     });
@@ -59,7 +52,6 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     ingredientLists.fetch('baking_grain').then(function(data) {
       $scope.grains = data;
     });
-
     $scope.getIngredients = function() {
       return $scope.ingredients;
     };
@@ -79,7 +71,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       var dietOpt = $scope.getDietID();
       var excludedOpt = '&exclude_ing=' + $scope.excludedIngredients.toString();
       var recipeOpt = '/recipes?any_kw=' + ($scope.ingredients).toString();
-      var searchUrl = 'http://api.bigoven.com' + recipeOpt + dietOpt +
+      var searchUrl = 'https://api.bigoven.com' + recipeOpt + dietOpt +
                       excludedOpt + '&api_key=' + apiKey + '&pg=1&rpp=15';
       return searchUrl;
     };
@@ -105,7 +97,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
 
     $scope.getRecipe = function(recipeID) {
       console.log(recipeID);
-      var recipeUrl = 'http://api.bigoven.com/recipe/' + recipeID + '?api_key=' +
+      var recipeUrl = 'https://api.bigoven.com/recipe/' + recipeID + '?api_key=' +
                       apiKey;
 
       $http.get(recipeUrl).
@@ -147,5 +139,9 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       }
       return $scope.obj = obj;
     };
+
+    $scope.$on('$viewContentLoaded', function() {
+      alert('Stuff has loaded');
+    });
 
 }]);
