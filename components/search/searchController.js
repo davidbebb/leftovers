@@ -95,7 +95,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
 
     $scope.getRecipe = function(recipeID) {
       console.log(recipeID);
-      var recipeUrl = 'http://api.bigoven.com/recipe/' + recipeID + '?api_key=' +
+      var recipeUrl = 'https://api.bigoven.com/recipe/' + recipeID + '?api_key=' +
                       apiKey;
 
       $http.get(recipeUrl).
