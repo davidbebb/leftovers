@@ -4,14 +4,13 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     $scope.ingredients = [];
     $scope.posts = null;
     $scope.excludedIngredients = [];
+    $scope.favCount = 0;
 
     var apiKey = '';
     var fbID = '';
     var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
     var apiRef = new Firebase('https://leftovers-app.firebaseio.com/secrets');
     var favRef = new Firebase('https://leftovers-app.firebaseio.com/users/' + $rootScope.fbID + '/favorites');
-
-    // + '/favorites'
 
     apiRef.once('value', function(data) {
       return apiKey = data.val();
@@ -122,15 +121,31 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     };
 
     $scope.addFavorite = function(title, recipeID) {
-      console.log(title);
-      console.log(recipeID);
-      // id = recipeID.toString();
-      // console.log(id);
-      // favRef.child(title).set({recipeID});
-      favRef.push({
-        title: recipeID.toString();
-      });
-      // ref.child(key).set({authData});
-
+      favRef.child(recipeID).set({title});
+      $scope.favCount++;
     };
+
+    $scope.faves = [];
+
+    favRef.on('value', function(snapshot) {
+      console.log(snapshot.val());
+      snapshot.forEach(function(childSnapshot) {
+        $scope.faves.push(childSnapshot.val().title, childSnapshot.key());
+        console.log($scope.faves);
+      });
+    });
+
+    $scope.favesHash = function() {
+      var obj = {};
+      for (index in $scope.faves) {
+        if (index % 2 == 0) {
+          var key = $scope.faves[index];
+          index++;
+          var val = $scope.faves[index++];
+          obj[key] = val;
+        }
+      }
+      return $scope.obj = obj;
+    };
+
 }]);

@@ -1,5 +1,6 @@
 
 <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
+
   <div class = "ingredient-lists">
 
     <div class="meat-container">
@@ -70,6 +71,7 @@
     <br>
     <input type="text" ng-model="ingredient" placeholder="What's in your fridge?">
     <button>Search Recipes</button>
+  </form>
 
     <br>
     <form>
@@ -115,13 +117,26 @@
         <br>
         <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
 
-        <form class="addFav" ng-submit="addFavorite(recipe.Title)">
+        <form class="addFav" ng-submit="addFavorite(recipe.Title, post.RecipeID)">
           <button style="color:red" id="addFavBtn">Add to favorites</button>
         </form>
 
       </div>
-
     </div>
 
+  <!-- </form> -->
+
+  <form class="showFav" ng-submit="favesHash()" ng-click="hiddenFavDiv = !hiddenFavDiv">
+    <button id="showFavBtn">Show my favorite recipes!</button>
   </form>
+<!-- ng-model="showFavorites"  -->
+  <div class="FavRecipes" ng-show="hiddenFavDiv" ng-repeat="(key, value) in obj">
+    <a href ng-click="getRecipe(value)">
+    {{ key }}
+    </a>
+  </div>
+
+
+
+
 </div>
