@@ -1,26 +1,23 @@
 <div class='search' ng-controller='SearchController as searchCtrl'>
 
   <div class="search-container">
-
     <div class="search-boxes">
-      <div class="form-group">
         <form class="newIngredient" ng-submit="addIngredient(ingredient, excluded)">
           <input type="text" class="form-control" ng-model="ingredient" placeholder="What's in your fridge?">
           <input type="text" class="form-control" ng-model="excluded" placeholder="Ingredients to exclude">
-          <div class="go-button">
-            <button>Go</button>
+          <div class="go-div">
+            <button id="go-button" class="btn btn-default btn-md btn-block">Go!</button>
          </div>
         </form>
       </div>
-    </div>
 
     <div class="ingredients-buttons">
       <div class="ingredient-buttons-row1">
 
         <div class="meat-container">
 
-          <button id="meat" class="btn btn-default btn-md" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
-            <img src='./../../assets/img/steak(1).png'>
+          <button id="meat-button" class="btn btn-default btn-md" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
+            <img src='./../../assets/img/64 x 64-27 drumstick.png'>
             <br>Meat
           </button>
 
@@ -33,8 +30,8 @@
         </div>
 
         <div class="veg-container">
-          <button id="veg" class="btn btn-default btn-md" ng-click="hiddenVegDiv = !hiddenVegDiv">
-              <img src='./../../assets/img/steak(1).png'>
+          <button id="veg-button" class="btn btn-default btn-md" ng-click="hiddenVegDiv = !hiddenVegDiv">
+              <img src='./../../assets/img/64 x 64-14 broccoli.png'>
               <br>Vegetables
             </button>
             <modal-dialog show='hiddenVegDiv' dialog-title='Vegetables'>
@@ -46,8 +43,8 @@
           </div>
 
         <div class="fruits-container">
-          <button id="veg" class="btn btn-default btn-md" ng-click="hiddenFruitDiv = !hiddenFruitDiv">
-            <img src='./../../assets/img/steak(1).png'>
+          <button id="fruits-button" class="btn btn-default btn-md" ng-click="hiddenFruitDiv = !hiddenFruitDiv">
+            <img src='./../../assets/img/64 x 64-09 watermelon.png'>
             <br>Fruits
           </button>
 
@@ -64,8 +61,8 @@
       <div class="ingredient-buttons-row2">
 
         <div class="seafood-container">
-          <button id="seafood" class="btn btn-default btn-md" ng-click="hiddenSeafoodDiv = !hiddenSeafoodDiv">
-            <img src='./../../assets/img/steak(1).png'>
+          <button id="seafood-button" class="btn btn-default btn-md" ng-click="hiddenSeafoodDiv = !hiddenSeafoodDiv">
+            <img src='./../../assets/img/64 x 64-44 fish.png'>
             <br>Seafood
           </button>
 
@@ -75,13 +72,11 @@
               {{ seafoodType }}
             </div>
           </modal-dialog>
-
         </div>
 
         <div class="dairy-container">
-
-          <button id="dairy" class="btn btn-default btn-md" ng-click="hiddenDairyDiv = !hiddenDairyDiv">
-            <img src='./../../assets/img/steak(1).png'>
+          <button id="dairy-button" class="btn btn-default btn-md" ng-click="hiddenDairyDiv = !hiddenDairyDiv">
+            <img src='./../../assets/img/64 x 64-39 cheese.png'>
             <br>Dairy
           </button>
 
@@ -91,13 +86,11 @@
               {{ dairyType }}
             </div>
           </modal-dialog>
-
         </div>
 
         <div class="grains-container">
-
-          <button id="grains" class="btn btn-default btn-md" ng-click="hiddenGrainsDiv = !hiddenGrainsDiv">
-            <img src='./../../assets/img/steak(1).png'>
+          <button id="grains-button" class="btn btn-default btn-md" ng-click="hiddenGrainsDiv = !hiddenGrainsDiv">
+            <img src='./../../assets/img/64 x 64-25 grains.png'>
             <br>Grains
           </button>
 
@@ -107,7 +100,6 @@
               {{ grainsType }}
             </div>
           </modal-dialog>
-
           </div>
       </div>
     </div>
@@ -121,6 +113,7 @@
     </div>
   </div>
 
+<!-- Recipe results -->
   <div id="recipe-results">
     <div class="recipe-container" ng-repeat="post in posts">
       <br>
@@ -152,7 +145,6 @@
         <form class="addFav" ng-submit="addFavorite(recipe.Title, post.RecipeID)">
           <button style="color:red" id="addFavBtn">Add to favorites</button>
         </form>
-
       </div>
     </div>
 
@@ -181,4 +173,5 @@
       <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
     </div>
   </div>
+
 </div>

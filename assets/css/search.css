@@ -1,15 +1,26 @@
+.search-container  {
+  padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+  padding-bottom: 80px;
+  text-align: center;
+  background: url('./../../assets/img/food-background.jpg') no-repeat center center;
+  background-size: cover;
+}
+
 .search-boxes {
+  padding-top: 20px;
   width: 20%;
   margin: auto;
 }
 
-.go-button {
+.go-div {
   padding-top: 10px;
   text-align: center;
 }
 
-.search-container  {
-  padding-top: 70px;  /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+#go-button {
+  background-color: #7D8402;
+  font-weight: bold;
+  color: snow;
 }
 
 .ingredients-buttons {
@@ -23,6 +34,31 @@
 .ingredient-buttons-row2 {
   padding-top: 10px
 }
+
+#meat-button {
+  background-color: ;
+}
+
+#veg-button {
+  background-color: ;
+}
+
+#fruits-button {
+  background-color: ;
+}
+
+#seafood-button {
+  background-color: ;
+}
+
+#dairy-button {
+  background-color: ;
+}
+
+#grains-button {
+  background-color: ;
+}
+
 .meat-container {
   display: inline-block;
 }
@@ -31,21 +67,27 @@
   display: inline-block;
 }
 
+
 .fruits-container {
   display: inline-block;
 }
+
 
 .seafood-container {
   display: inline-block;
 }
 
+
 .dairy-container {
   display: inline-block;
 }
 
+
 .grains-container {
   display: inline-block;
 }
+
+
 
 .dietary-requirements {
   padding-top: 20px;
