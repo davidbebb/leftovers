@@ -1,15 +1,19 @@
 
+
 <div class ='searchbox' ng-controller='SearchController as searchCtrl'>
   <div class = "ingredient-lists">
+
+    <modal-dialog show='hiddenMeatDiv' dialog-title='Meat'>
+      <div class="meat" ng-repeat="meatType in meat">
+        <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
+        {{ meatType }}
+      </div>
+    </modal-dialog>
 
     <div class="meat-container">
       <button id="meat" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
         Meat
       </button>
-      <div class="meat" ng-repeat="meatType in meat" ng-show="hiddenMeatDiv">
-        <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
-        {{ meatType }}
-      </div>
     </div>
 
     <div class="veg-container">
@@ -22,15 +26,33 @@
       </div>
     </div>
 
-    <div class="fruits-container">
-      <button id="veg" ng-click="hiddenFruitDiv = !hiddenFruitDiv">
-        Fruits
-      </button>
-      <div class="fruit" ng-repeat="fruitType in fruits" ng-show="hiddenFruitDiv">
+
+    <button id="veg" class='ingredientButton' ng-click="hiddenFruitDiv = !hiddenFruitDiv">Fruits</button>
+
+
+    <div class="fruits-container" id='fruitPopup'>
+      <div id='fruitPopupContent' class="fruit" ng-repeat="fruitType in fruits" ng-show="hiddenFruitDiv">
         <input type="checkbox" checklist-model="getIngredients()" checklist-value="fruitType" ng-change="check(fruitType, checked)">
         {{ fruitType }}
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div class="seafood-container">
       <button id="seafood" ng-click="hiddenSeafoodDiv = !hiddenSeafoodDiv">

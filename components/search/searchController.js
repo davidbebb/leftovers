@@ -9,7 +9,6 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     var fbID = '';
     var ref = new Firebase('https://leftovers-app.firebaseio.com/users');
     var apiRef = new Firebase('https://leftovers-app.firebaseio.com/secrets');
-//    var userRef = new Firebase('https://leftovers-app.firebaseio.com/users/' + $rootScope.fbID);
 
     apiRef.once('value', function(data) {
       return apiKey = data.val();
@@ -27,13 +26,6 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       var dietUrl = '&cuisine=' + $scope.diet.option;
       return dietUrl;
     };
-
-    // $scope.getList = function(file) {
-    //   ingredientLists.fetch(file).then(function(data) {
-    //     $scope.ingredientPreset = data;
-    //   });
-    //   console.log('getList ' + file);
-    // };
 
     ingredientLists.fetch('meat').then(function(data) {
       $scope.meat = data;
@@ -118,6 +110,10 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
 
       console.log(recipeUrl);
     };
+
+    $scope.$on('$viewContentLoaded', function() {
+      alert('Stuff has loaded');
+    });
 
     // $scope.addFavorite = function(title, ingredients, instructions) {
     //   console.log(title);
