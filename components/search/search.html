@@ -92,6 +92,7 @@
   </div>
   <div class ="search-container">
   <form class="newIngredient" ng-submit="addIngredient(ingredient, excluded)">
+    Something that doesn't agree with you? You can exclude up to three ingredients here!
     <input type="text" ng-model="excluded" placeholder="Ingredients to exclude">
     <br>
     <input type="text" ng-model="ingredient" placeholder="What's in your fridge?">
@@ -115,7 +116,7 @@
 
       <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
         <button>Show/hide this recipe!</button>
-      <form>
+      </form>
 
       <div class="selected-recipe" ng-show="hiddenRecipeDiv">
         <img ng-src="{{ recipe.ImageURL }}" />
@@ -123,14 +124,20 @@
         Time it takes: {{ recipe.TotalMinutes }}mins
         <p>Ingredients:</p>
         <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
+        {{ ingredient.DisplayQuantity }}
+        {{ ingredient.Unit }}
         {{ ingredient.Name }}
         </div>
         <br>
         <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
-      </div>
-
         <!-- <button ng-click="addFavorite(recipe.Title, ingredient.Name, recipe.Instructions)">Add to favorites</button> -->
       </form>
+
+        <form class="addFav" ng-submit="addFavorite(recipe.Title)">
+          <button style="color:red" id="addFavBtn">Add to favorites</button>
+        </form>
+
+      </div>
     </div>
   </div>
 </div>
