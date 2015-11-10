@@ -34,11 +34,11 @@ leftoversApp.controller('FacebookAuthController', ['$scope', '$rootScope',
             ref.child(key).set({authData});
           }
         });
-      }
 
-      $scope.authData = authData;
-      $scope.isLoggedIn = isLoggedIn;
-      $rootScope.fbID = authData.facebook.id;
+        $scope.authData = authData;
+        $scope.isLoggedIn = isLoggedIn;
+        $rootScope.fbID = authData.facebook.id;
+      }
 
     });
 
