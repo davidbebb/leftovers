@@ -58,7 +58,6 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     ingredientLists.fetch('baking_grain').then(function(data) {
       $scope.grains = data;
     });
-
     $scope.getIngredients = function() {
       return $scope.ingredients;
     };

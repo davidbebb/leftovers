@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/search.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+
   </head>
 
 
@@ -42,8 +44,18 @@
       <p id='displayName'>{{authData.facebook.displayName}}</p>
     </div> -->
 
+
+
+    <!-- <div ng-show='authData.facebook'>
+      <div ng-include="'components/search/ingredients_buttons.html'"></div>
+    </div> -->
+
     <div ng-show='authData.facebook'>
       <div ng-include="'components/search/search.html'"></div>
     </div>
+
+
+
+
   </body>
 </html>
