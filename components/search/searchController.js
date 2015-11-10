@@ -52,6 +52,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     ingredientLists.fetch('baking_grain').then(function(data) {
       $scope.grains = data;
     });
+
     $scope.getIngredients = function() {
       return $scope.ingredients;
     };
@@ -137,11 +138,8 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
           obj[key] = val;
         }
       }
+
       return $scope.obj = obj;
     };
-
-    $scope.$on('$viewContentLoaded', function() {
-      alert('Stuff has loaded');
-    });
 
 }]);
