@@ -18,15 +18,24 @@
       <div class="ingredient-buttons-row1">
 
         <div class="meat-container">
+
           <button id="meat" class="btn btn-default btn-md" ng-click="hiddenMeatDiv = !hiddenMeatDiv">
             <img src='./../../assets/img/steak(1).png'>
             <br>Meat
           </button>
-          <div class="meat" ng-repeat="meatType in meat" ng-show="hiddenMeatDiv">
-            <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
-            {{ meatType }}
-          </div>
+
+          <modal-dialog show='hiddenMeatDiv' dialog-title='Meat'>
+            <div class="meat" ng-repeat="meatType in meat">
+              <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
+              {{ meatType }}
+            </div>
+          </modal-dialog>
         </div>
+
+
+
+
+        </modal-dialog>
 
         <div class="veg-container">
           <button id="veg" class="btn btn-default btn-md" ng-click="hiddenVegDiv = !hiddenVegDiv">
