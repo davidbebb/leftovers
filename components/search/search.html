@@ -3,7 +3,7 @@
   <div class="search-container">
 
     <div class="search-boxes">
-      <div class="form-group">
+      <di v class="form-group">
         <form class="newIngredient" ng-submit="addIngredient(ingredient, excluded)">
           <input type="text" class="form-control" ng-model="ingredient" placeholder="What's in your fridge?">
           <input type="text" class="form-control" ng-model="excluded" placeholder="Ingredients to exclude">
@@ -12,7 +12,7 @@
          </div>
         </form>
       </div>
-    </div>
+
 
     <div class="ingredients-buttons">
       <div class="ingredient-buttons-row1">
@@ -75,11 +75,9 @@
               {{ seafoodType }}
             </div>
           </modal-dialog>
-
         </div>
 
         <div class="dairy-container">
-
           <button id="dairy" class="btn btn-default btn-md" ng-click="hiddenDairyDiv = !hiddenDairyDiv">
             <img src='./../../assets/img/steak(1).png'>
             <br>Dairy
@@ -91,11 +89,9 @@
               {{ dairyType }}
             </div>
           </modal-dialog>
-
         </div>
 
         <div class="grains-container">
-
           <button id="grains" class="btn btn-default btn-md" ng-click="hiddenGrainsDiv = !hiddenGrainsDiv">
             <img src='./../../assets/img/steak(1).png'>
             <br>Grains
@@ -107,7 +103,6 @@
               {{ grainsType }}
             </div>
           </modal-dialog>
-
           </div>
       </div>
     </div>
@@ -121,7 +116,7 @@
     </div>
   </div>
 
-  <div id="recipe-results">
+  <div class="recipe-results">
     <div class="recipe-container" ng-repeat="post in posts">
       <br>
       <img ng-src="{{ post.ImageURL120 }}" />
