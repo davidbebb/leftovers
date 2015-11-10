@@ -25,7 +25,6 @@ leftoversApp.controller('FacebookAuthController', ['$scope', '$rootScope',
         console.log('Logged in as', authData.facebook.displayName, isLoggedIn);
 
         ref.once('value', function(snapshot) {
-          console.log(snapshot.val());
           key = authData.facebook.id;
           if (snapshot.child(key).exists()) {
             console.log('it is a match!');
