@@ -1,42 +1,5 @@
-leftoversApp.controller('SearchController', function($scope, $uibModal, $log, $http,
-                        ingredientLists) {
-
-
-
- $scope.items = ['item1', 'item2', 'item3'];
-
- $scope.veggies = []
-
-
-  $scope.animationsEnabled = true;
-
-   $scope.open = function (size) {
-
-     var modalInstance = $uibModal.open({
-       animation: $scope.animationsEnabled,
-       templateUrl: "veg.html",
-       controller: 'ModalInstanceCtrl',
-       size: size,
-       resolve: {
-         veggies: function () {
-           return $scope.veggies;
-         }
-       }
-     });
-
-     modalInstance.result.then(function (selectedItem) {
-       $scope.selected = selectedItem;
-     }, function () {
-       $log.info('Modal dismissed at: ' + new Date());
-     });
-   };
-
-   $scope.toggleAnimation = function () {
-     $scope.animationsEnabled = !$scope.animationsEnabled;
-   };
-
-
-
+leftoversApp.controller('SearchController', function($scope, $uibModal, $log,
+                                                     $http, ingredientLists) {
 
   $scope.ingredients = [];
   $scope.posts = null;
@@ -48,21 +11,10 @@ leftoversApp.controller('SearchController', function($scope, $uibModal, $log, $h
     option: '',
   };
 
-  $scope.clearDiet = function() {
-    $scope.diet = false;
-  };
-
   $scope.getDietID = function() {
     var dietUrl = '&cuisine=' + $scope.diet.option;
     return dietUrl;
   };
-
-  // $scope.getList = function(file) {
-  //   ingredientLists.fetch(file).then(function(data) {
-  //     $scope.ingredientPreset = data;
-  //   });
-  //   console.log('getList ' + file);
-  // };
 
   ingredientLists.fetch('meat').then(function(data) {
     $scope.meat = data;
@@ -156,26 +108,53 @@ leftoversApp.controller('SearchController', function($scope, $uibModal, $log, $h
     });
   };
 
+  //MODAL START
+  $scope.veggies = [];
+  $scope.animationsEnabled = true;
+
+  $scope.open = function() {
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'veg.html',
+      controller: 'ModalInstanceCtrl',
+      resolve: {
+        veggies: function() {
+          return $scope.veggies;
+        }
+      }
+    });
+
+    modalInstance.result.then(function(selectedItem) {
+      $scope.selected = selectedItem;
+    }, function() {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  $scope.toggleAnimation = function() {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+  //MODAL END
+
 });
 
-
-
-
-
-leftoversApp.controller('ModalInstanceCtrl', function ($scope,$controller, $uibModalInstance, veggies) {
-    $controller('SearchController', {$scope: $scope}); //This works
+//MODAL CONTROLLER
+leftoversApp.controller('ModalInstanceCtrl', function($scope, $controller,
+                                                       $uibModalInstance,
+                                                       veggies) {
+  $controller('SearchController', {$scope: $scope}); //This works
 
   $scope.veggies = veggies;
   $scope.selected = {
-    veg: $scope.veggies[0]
+
   };
 
-  $scope.ok = function () {
+  $scope.ok = function() {
     $uibModalInstance.close($scope.selected.veg);
-    console.log($scope.ingredients)
+    console.log($scope.ingredients);
   };
 
-  $scope.cancel = function () {
+  $scope.cancel = function() {
     $uibModalInstance.dismiss('cancel');
   };
 
