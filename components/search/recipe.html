@@ -10,25 +10,28 @@
       <br>
 
       <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
-        <button>Show/hide this recipe!</button>
+        <button>Show/hide this recipe! GRR</button>
       </form>
 
-      <div class="selected-recipe" ng-show="hiddenRecipeDiv">
-        <img ng-src="{{ recipe.ImageURL }}" />
-        <p ng-model="recipe.Title">{{ recipe.Title }}</p>
-        Time it takes: {{ recipe.TotalMinutes }}mins
-        <p>Ingredients:</p>
-        <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
-          {{ ingredient.DisplayQuantity }}
-          {{ ingredient.Unit }}
-          {{ ingredient.Name }}
+      <modal-dialog show='hiddenRecipeDiv' dialog-title='Cook me'>
+        <div class="selected-recipe">
+          <img ng-src="{{ recipe.ImageURL }}" />
+          <p ng-model="recipe.Title">{{ recipe.Title }}</p>
+          Time it takes: {{ recipe.TotalMinutes }}mins
+          <p>Ingredients:</p>
+          <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
+            {{ ingredient.DisplayQuantity }}
+            {{ ingredient.Unit }}
+            {{ ingredient.Name }}
+          </div>
+          <br>
+          <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
         </div>
-        <br>
-        <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
-      </div>
 
         <form class="addFav" ng-submit="addFavorite(recipe.Title, post.RecipeID)">
           <button style="color:red" id="addFavBtn">Add to favorites</button>
         </form>
+      </modal-dialog>
+
       </div>
     </div>

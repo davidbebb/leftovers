@@ -7,21 +7,22 @@
 
 
     <form class="getRecipe" ng-click="hiddenFavRecipeDiv = !hiddenFavRecipeDiv; getRecipe(value)">
-      <button>{{ key }}</button>
+      <button>Fave = {{ key }}</button>
     </form>
 
-    <div class="selected-recipe" ng-show="hiddenFavRecipeDiv">
-      <img ng-src="{{ recipe.ImageURL }}" />
-      <p ng-model="recipe.Title">{{ recipe.Title }}</p>
-      Time it takes: {{ recipe.TotalMinutes }}mins
-      <p>Ingredients:</p>
-      <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
-      {{ ingredient.DisplayQuantity }}
-      {{ ingredient.Unit }}
-      {{ ingredient.Name }}
-      </div>
-      <br>
-      <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
-    </div>
+    <modal-dialog show='hiddenFavRecipeDiv' dialog-title='Cook me'>
+        <img ng-src="{{ recipe.ImageURL }}" />
+        <p ng-model="recipe.Title">{{ recipe.Title }}</p>
+        Time it takes: {{ recipe.TotalMinutes }}mins
+        <p>Ingredients:</p>
+        <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
+        {{ ingredient.DisplayQuantity }}
+        {{ ingredient.Unit }}
+        {{ ingredient.Name }}
+        </div>
+        <br>
+        <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
+    </modal-dialog>
+
   </div>
 </div>
