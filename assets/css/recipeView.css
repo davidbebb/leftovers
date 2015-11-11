@@ -1,6 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:300);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 
+.addFav {
+  padding-bottom: 20px;
+}
+
+#selected-recipe .ng-modal-dialog {
+  height: 80%;
+  overflow: scroll;
+}
+
 .view-image {
   /*width: 800px;
   height: 200px;*/
@@ -34,7 +43,8 @@ h4 {
 }
 
 .ng-modal-dialog p,
-.ingredients {
+.ingredients,
+.recipe-instructions {
   font-size: 14px;
   line-height: 1.75em;
   font-family: 'Droid Serif', serif;
