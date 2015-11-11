@@ -1,24 +1,29 @@
 <!-- Recipe results -->
-  <div id="recipe-results">
-    <div class="recipe-container" ng-repeat="post in posts">
-      <br>
+<div id="recipe-results">
+  <div id="recipe-container" ng-repeat="post in posts">
+      <div class="recipe-title">
+        {{ post.Title }}
+      </div>
+    <div class="recipe-img-container">
       <img ng-src="{{ post.ImageURL120 }}" />
-      <p>{{ post.Title }}</p>
-      <p>{{ post.Cuisine }}</p>
-      <p id="rating">{{ post.StarRating | number:1 }}</p>
-      <p id="recipe-id" ng-model="post.RecipeID">{{ post.RecipeID }}</p>
-      <br>
-
-      <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
-        <button>Show/hide this recipe!</button>
-      </form>
-
-      <div class="selected-recipe" ng-show="hiddenRecipeDiv">
-        <div ng-include="'components/search/recipeView.html'"></div>
-      </div>
-
-        <form class="addFav" ng-submit="addFavorite(recipe.Title, post.RecipeID)">
-          <button style="color:red" id="addFavBtn">Add to favorites</button>
-        </form>
-      </div>
     </div>
+    <div class="cuisine">
+      {{ post.Cuisine }}
+    </div>
+    <!-- <p id="rating">{{ post.StarRating | number:1 }}</p> -->
+    <!-- <p id="recipe-id" ng-model="post.RecipeID">{{ post.RecipeID }}</p> -->
+    <br>
+
+    <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
+      <button id="get-recipe-button" class="btn btn-default btn-md">Show/hide this recipe!</button>
+    </form>
+
+    <div class="selected-recipe" ng-show="hiddenRecipeDiv">
+      <div ng-include="'components/search/recipeView.html'"></div>
+    </div>
+
+      <form class="addFav" ng-submit="addFavorite(recipe.Title, post.RecipeID)">
+        <button id="get-recipe-button" class="btn btn-warning btn-md">Add to favorites</button>
+      </form>
+    </div>
+</div>

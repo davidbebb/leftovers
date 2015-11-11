@@ -1,0 +1,14 @@
+#recipe-results {
+  text-align: center;
+  background-color: snow;
+  font-family: Helvetica, sans-serif;
+}
+
+#recipe-container .recipe-img-container img {
+  min-height: auto;
+  /*min-width: auto;*/
+  max-width: 120px;
+  /*max-height: 120px;*/
+}
+
+.dic

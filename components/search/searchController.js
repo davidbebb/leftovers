@@ -142,4 +142,4 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       return $scope.obj = obj;
     };
 
-}]);
+  }]);
