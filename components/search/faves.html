@@ -1,0 +1,27 @@
+<div ng-controller='SearchController as searchCtrl'id="faves">
+  <form class="showFav" ng-submit="favesHash()" ng-click="hiddenFavDiv = !hiddenFavDiv">
+    <button id="showFavBtn">Show my favorite recipes!</button>
+  </form>
+
+  <div class="FavRecipes" ng-show="hiddenFavDiv" ng-repeat="(key, value) in obj">
+
+
+    <form class="getRecipe" ng-click="hiddenFavRecipeDiv = !hiddenFavRecipeDiv; getRecipe(value)">
+      <button>{{ key }}</button>
+    </form>
+
+    <div class="selected-recipe" ng-show="hiddenFavRecipeDiv">
+      <img ng-src="{{ recipe.ImageURL }}" />
+      <p ng-model="recipe.Title">{{ recipe.Title }}</p>
+      Time it takes: {{ recipe.TotalMinutes }}mins
+      <p>Ingredients:</p>
+      <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
+      {{ ingredient.DisplayQuantity }}
+      {{ ingredient.Unit }}
+      {{ ingredient.Name }}
+      </div>
+      <br>
+      <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
+    </div>
+  </div>
+</div>
