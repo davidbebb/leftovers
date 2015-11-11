@@ -68,6 +68,11 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       }
     };
 
+    $scope.addToIngredients = function(ingredient) {
+      $scope.ingredients = ingredient;
+      console.log($scope.ingredients);
+    };
+
     $scope.url = function() {
       var dietOpt = $scope.getDietID();
       var excludedOpt = '&exclude_ing=' + $scope.excludedIngredients.toString();
@@ -77,9 +82,10 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       return searchUrl;
     };
 
-    $scope.addIngredient = function(ingredient, excluded) {
-      $scope.ingredients.push(ingredient);
+    $scope.addIngredient = function(excluded) {
+
       $scope.excludedIngredients.push(excluded);
+
       var url = $scope.url();
 
       $http.get(url).

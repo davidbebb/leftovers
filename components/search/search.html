@@ -1,15 +1,6 @@
 <div class='search'>
 
   <div class="search-container">
-    <div class="search-boxes">
-        <form class="newIngredient" ng-submit="addIngredient(ingredient, excluded)">
-          <input type="text" class="form-control" ng-model="ingredient" placeholder="What's in your fridge?">
-          <input type="text" class="form-control" ng-model="excluded" placeholder="Ingredients to exclude">
-          <div class="go-div">
-            <button id="go-button" class="btn btn-default btn-md btn-block">Go!</button>
-         </div>
-        </form>
-      </div>
 
     <div class="ingredients-buttons">
       <div class="ingredient-buttons-row1">
@@ -111,14 +102,26 @@
           <label class="btn btn-default" ng-model="diet.option" uib-btn-radio="'dairy-free'" uncheckable>Dairy-free</label>
       </div>
     </div>
-  </div>
 
+    <!-- <div class="list-of-included-ingredients">
+      Basket
+      <div class="ingredientList" ng-repeat="ingredient in ingredients">
+        {{ingredient}}
+      </div>
+    </div> -->
+    <div class="search-boxes">
+        <form class="newIngredient" ng-submit="addIngredient(excluded)">
+          <textarea rows="4" cols="50" class="form-control" ng-model="ingredients" ng-change ="addToIngredients(ingredients)"></textarea>
 
-  <div class="list-of-included-ingredients">
-    Basket
-    <div class="ingredientList" ng-repeat="ingredient in ingredients">
-      {{ingredient}}
-    </div>
+          <input type="text" class="form-control" ng-model="excluded" placeholder="Ingredients to exclude">
+
+          <div class="go-div">
+            <button id="go-button" class="btn btn-default btn-md btn-block">Go!</button>
+
+         </div>
+        </form>
+      </div>
+
   </div>
 
 </div>
