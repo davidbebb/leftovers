@@ -142,9 +142,5 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       return $scope.obj = obj;
     };
 
-    $scope.removeFavorite = function(recipeID) {
-      rmRef = new Firebase('https://leftovers-app.firebaseio.com/users/' + $rootScope.fbID + '/favorites/' + recipeID);
-      rmRef.remove();
-    };
 
 }]);

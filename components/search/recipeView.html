@@ -9,3 +9,6 @@ Time it takes: {{ recipe.TotalMinutes }}mins
 </div>
 <br>
 <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
+<form class="removeFav" ng-submit="removeFavorite(post.RecipeID)">
+  <button style="color:red" id="removeFavBtn">Remove from favorites</button>
+</form>

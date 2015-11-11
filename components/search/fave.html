@@ -4,12 +4,16 @@
 
 <div class="FavRecipes" ng-show="hiddenFavDiv" ng-repeat="(key, value) in obj">
 
-
   <form class="getRecipe" ng-click="hiddenFavRecipeDiv = !hiddenFavRecipeDiv; getRecipe(value)">
     <button>{{ key }}</button>
+  </form>
+
+  <form class="removeFav" ng-submit="removeFavorite(value)">
+    <button style="color:red" id="removeFavBtn">Remove from favorites</button>
   </form>
 
   <div class="selected-recipe" ng-show="hiddenFavRecipeDiv">
     <div ng-include="'components/search/recipeView.html'"></div>
   </div>
+
 </div>
