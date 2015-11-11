@@ -1,13 +1,11 @@
 <div ng-controller='SearchController as searchCtrl'id="faves">
-  <form class="showFav" ng-submit="favesHash()" ng-click="hiddenFavDiv = !hiddenFavDiv">
-    <button id="showFavBtn">Show my favorite recipes!</button>
-  </form>
+    <a id="showFavBtn" class="showFav" ng-click="favesHash(); hiddenFavDiv = !hiddenFavDiv)">Show my favorite recipes!</a>
 
   <div class="FavRecipes" ng-show="hiddenFavDiv" ng-repeat="(key, value) in obj">
 
 
     <form class="getRecipe" ng-click="hiddenFavRecipeDiv = !hiddenFavRecipeDiv; getRecipe(value)">
-      <button>Fave = {{ key }}</button>
+      <button>{{ key }}</button>
     </form>
 
     <modal-dialog show='hiddenFavRecipeDiv' dialog-title='Cook me'>

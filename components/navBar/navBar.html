@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right pull-right" >
               <li>
-                <div class='search' ng-controller='SearchController as searchCtrl' id="faves" ng-include="'components/search/faves.html'"></div>
+                <div class='search' id="faves" ng-include="'components/search/faves.html'"></div>
               </li>
               <li>
                 <a id='displayName' ng-show='authData.facebook'>{{authData.facebook.displayName}}</a>
