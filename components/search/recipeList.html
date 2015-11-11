@@ -1,0 +1,34 @@
+<!-- Recipe results -->
+  <div id="recipe-results">
+    <div class="recipe-container" ng-repeat="post in posts">
+      <br>
+      <img ng-src="{{ post.ImageURL120 }}" />
+      <p>{{ post.Title }}</p>
+      <p>{{ post.Cuisine }}</p>
+      <p id="rating">{{ post.StarRating | number:1 }}</p>
+      <p id="recipe-id" ng-model="post.RecipeID">{{ post.RecipeID }}</p>
+      <br>
+
+      <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
+        <button>Show/hide this recipe!</button>
+      </form>
+
+      <div class="selected-recipe" ng-show="hiddenRecipeDiv">
+        <img ng-src="{{ recipe.ImageURL }}" />
+        <p ng-model="recipe.Title">{{ recipe.Title }}</p>
+        Time it takes: {{ recipe.TotalMinutes }}mins
+        <p>Ingredients:</p>
+        <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
+          {{ ingredient.DisplayQuantity }}
+          {{ ingredient.Unit }}
+          {{ ingredient.Name }}
+        </div>
+        <br>
+        <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
+      </div>
+
+        <form class="addFav" ng-submit="addFavorite(recipe.Title, post.RecipeID)">
+          <button style="color:red" id="addFavBtn">Add to favorites</button>
+        </form>
+      </div>
+    </div>
