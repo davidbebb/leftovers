@@ -102,28 +102,32 @@
       </div>
     </div>
 
-    <div class="list-of-included-ingredients">
-      Basket
-      <div class="ingredientList" ng-repeat="ingredient in ingredients">
-        {{ingredient}}
-      </div>
-      <div class="ingredientList" ng-repeat="foo in ingredientsFromSearchBox track by $index">
-        {{foo}}
-      </div>
-    </div>
-
     <div class="search-boxes">
-        <form class="newIngredient" ng-submit="addIngredient(excluded)">
-          <textarea rows="4" cols="50" class="form-control" ng-model="ing " ng-change ="addToIngredients(ing)"></textarea>
 
-          <input type="text" class="form-control" ng-model="excluded" placeholder="Ingredients to exclude">
+      <button id="list-ingredients-button" class="btn btn-default btn-md btn-block" ng-click="hiddeningredientslistdiv = !hiddeningredientslistdiv">Show ingredients list</button>
 
-          <div class="go-div">
-            <button id="go-button" class="btn btn-default btn-md btn-block">Go!</button>
+      <div class="list-of-included-ingredients">
+        <modal-dialog show='hiddeningredientslistdiv' dialog-title='Ingredients'>
 
-         </div>
-        </form>
+          <div class="ingredientList" ng-repeat="ingredient in ingredients">
+            {{ingredient}}
+          </div>
+          <div class="ingredientList" ng-repeat="foo in ingredientsFromSearchBox track by $index">
+            {{foo}}
+          </div>
+        </modal-dialog>
       </div>
+
+
+      <form class="newIngredient" ng-submit="addIngredient(excluded)">
+        <textarea name='freeIngredientsText'rows="4" cols="50" class="form-control" ng-model="ing" ng-change ="addToIngredients(ing)"placeholder="What do you have in your fridge?"></textarea>
+        <input type="text" class="form-control" ng-model="excluded" placeholder="Ingredients to exclude">
+
+        <div class="go-div">
+          <button id="go-button" class="btn btn-default btn-md btn-block">Search!</button>
+       </div>
+      </form>
+    </div>
 
   </div>
 </div>

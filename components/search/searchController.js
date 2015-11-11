@@ -100,6 +100,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
           error(function(data, status, headers, config) {
         });
 
+      $scope.ing = '';
       $scope.ingredient = '';
       $scope.ingredients = [ ];
       $scope.excluded = '';
