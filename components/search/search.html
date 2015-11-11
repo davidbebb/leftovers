@@ -113,7 +113,13 @@
     </div>
   </div>
 
-  <div ng-include="'components/search/selectedIngredients.html'"></div>
+  <div class="list-of-included-ingredients">
+    Basket
+    <div class="ingredientList" ng-repeat="ingredient in ingredients">
+      {{ingredient}}
+    </div>
+  </div>
+
 
   <div ng-include="'components/search/recipeList.html'"></div>
 
