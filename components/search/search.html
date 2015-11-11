@@ -96,22 +96,26 @@
     </div>
 
     <div class="dietary-requirements">
-      <div class="btn-group">
+      <div class="btn-g roup">
           <label class="btn btn-default" ng-model="diet.option" uib-btn-radio="'vegetarian'" uncheckable>Vegetarian</label>
           <label class="btn btn-default" ng-model="diet.option" uib-btn-radio="'gluten-free'" uncheckable>Gluten-free</label>
           <label class="btn btn-default" ng-model="diet.option" uib-btn-radio="'dairy-free'" uncheckable>Dairy-free</label>
       </div>
     </div>
 
-    <!-- <div class="list-of-included-ingredients">
+    <div class="list-of-included-ingredients">
       Basket
       <div class="ingredientList" ng-repeat="ingredient in ingredients">
         {{ingredient}}
       </div>
-    </div> -->
+      <div class="ingredientList" ng-repeat="foo in ingredientsFromSearchBox track by $index">
+        {{foo}}
+      </div>
+    </div>
+
     <div class="search-boxes">
         <form class="newIngredient" ng-submit="addIngredient(excluded)">
-          <textarea rows="4" cols="50" class="form-control" ng-model="ingredients" ng-change ="addToIngredients(ingredients)"></textarea>
+          <textarea rows="4" cols="50" class="form-control" ng-model="ing " ng-change ="addToIngredients(ing)"></textarea>
 
           <input type="text" class="form-control" ng-model="excluded" placeholder="Ingredients to exclude">
 
