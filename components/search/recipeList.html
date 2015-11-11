@@ -13,13 +13,13 @@
         <button>Show/hide this recipe!</button>
       </form>
 
-      <div class="selected-recipe" ng-show="hiddenRecipeDiv">
-        <div ng-include="'components/search/recipeView.html'"></div>
-      </div>
+      <modal-dialog id="selected-recipe" show='hiddenRecipeDiv' dialog-title="{{post.Title}}">
+        <div class="test" ng-include="'components/search/recipeView.html'"></div>
+      </modal-dialog>
 
-        <form class="addFav" ng-submit="addFavorite(post.Title, post.RecipeID)">
-          <button style="color:red" id="addFavBtn">Add to favorites</button>
-        </form>
+      <form class="addFav" ng-submit="addFavorite(post.Title, post.RecipeID)">
+        <button style="color:red" id="addFavBtn">Add to favorites</button>
+      </form>
 
-      </div>
     </div>
+  </div>

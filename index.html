@@ -26,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/login.css">
     <link rel="stylesheet" href="/assets/css/search.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/recipeView.css">
+    <link rel="stylesheet" href="/assets/css/recipeList.css">
 
     <link rel="stylesheet" href="bower_components/ngModal/dist/ng-modal.css">
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
@@ -42,9 +44,8 @@
 
     <div ng-show='authData.facebook' ng-controller='SearchController as searchCtrl'>
       <div ng-include="'components/search/search.html'"></div>
-
       <div ng-include="'components/search/recipeList.html'"></div>
       <div ng-include="'components/search/fave.html'"></div>
-      </div>
+    </div>
   </body>
 </html>
