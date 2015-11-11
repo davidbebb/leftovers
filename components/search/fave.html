@@ -10,16 +10,6 @@
   </form>
 
   <div class="selected-recipe" ng-show="hiddenFavRecipeDiv">
-    <img ng-src="{{ recipe.ImageURL }}" />
-    <p ng-model="recipe.Title">{{ recipe.Title }}</p>
-    Time it takes: {{ recipe.TotalMinutes }}mins
-    <p>Ingredients:</p>
-    <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
-    {{ ingredient.DisplayQuantity }}
-    {{ ingredient.Unit }}
-    {{ ingredient.Name }}
-    </div>
-    <br>
-    <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
+    <div ng-include="'components/search/recipeView.html'"></div>
   </div>
 </div>
