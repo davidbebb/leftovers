@@ -3,19 +3,26 @@
   font-family: Helvetica, sans-serif;
 }
 
+#recipe-carousel {
+  max-height: 500px;
+}
 
-#recipe-carousel .recipe-img-container img {
+.recipe-img-container img {
   object-fit: cover;
   max-height: 256px;
 }
 
-#recipe-carousel .recipe-img-container {
-  max-height: 400px
+.recipe-img-container {
+  max-height: 500px;
+  max-width: 100%
 }
 
 .recipe-title {
-  padding-bottom: 10px;
-  font-weight: normal;
+  /*text-align: left;*/
+  padding-top: 10px;
+  padding-bottom: 3px;
+  font-weight: bold;
+  /*background-color: goldenrod;*/
 }
 
 .show-recipe {
