@@ -1,4 +1,4 @@
-<div class='search' ng-controller='SearchController as searchCtrl'>
+<div class='search'>
 
   <div class="search-container">
     <div class="search-boxes">
@@ -113,16 +113,12 @@
     </div>
   </div>
 
+
   <div class="list-of-included-ingredients">
     Basket
     <div class="ingredientList" ng-repeat="ingredient in ingredients">
       {{ingredient}}
     </div>
   </div>
-
-
-  <div ng-include="'components/search/recipeList.html'"></div>
-
-  <div ng-include="'components/search/fave.html'"></div>
 
 </div>
