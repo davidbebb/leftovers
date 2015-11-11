@@ -7,8 +7,9 @@
   <div class="recipe-content">
     <!-- <p ng-model="recipe.Title">{{ recipe.Title }}</p> -->
     Time it takes: {{ recipe.TotalMinutes }}mins
-
+    <br>
     <p>Ingredients:</p>
+      <br>
       <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
         {{ ingredient.DisplayQuantity }}
         {{ ingredient.Unit }}

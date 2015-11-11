@@ -1,7 +1,8 @@
-.ng-modal-dialog #selected-recipe {
+#selected-recipe .ng-modal-dialog {
   height: 80%;
   overflow: scroll;
 }
+
 
 /*.selected-recipe {
     width: 400px;
