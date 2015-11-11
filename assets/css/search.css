@@ -8,8 +8,9 @@
 
 .search-boxes {
   padding-top: 20px;
-  width: 20%;
+  width: 291px;
   margin: auto;
+  max-width: 100%;
 }
 
 .go-div {
@@ -87,9 +88,23 @@
   display: inline-block;
 }
 
-
-
 .dietary-requirements {
   padding-top: 20px;
   text-align: center
+}
+
+.centre-button-spacing {
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+}
+
+.btn-group:nth-child(2) {
+  margin-left: 10px;
+  background-color: red;
+  margin-right: 10px;
+}
+
+.btn-group label {
+  width: 94px;
+  border-radius: 4px !important;
 }

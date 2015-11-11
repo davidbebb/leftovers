@@ -1,29 +1,50 @@
 <!-- Recipe results -->
 <div id="recipe-results">
-  <div id="recipe-container" ng-repeat="post in posts">
+  <div id="recipe-carousel">
+    <uib-carousel no-wrap='true'>
+      <uib-slide ng-repeat="post in posts" active="post.active">
+        <div class="recipe-title">
+          <h3>{{post.Title}}</h3>
+        </div>
+        <div class="recipe-img-container">
+          <img ng-src="{{ post.ImageURL }}" />
+        </div>
+        <div class="show-recipe">
+          <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
+            <button id="show-recipe-button" class="btn btn-lg">Show recipe</button>
+          </form>
+        </div>
+      </slide>
+    </carousel>
+
+    <div class="selected-recipe" ng-show="hiddenRecipeDiv">
+      <div ng-include="'components/search/recipeView.html'"></div>
+    </div>
+
+  </div>
+
+
+   <!-- <div id="recipe-container" ng-repeat="post in posts">
       <div class="recipe-title">
         {{ post.Title }}
       </div>
     <div class="recipe-img-container">
       <img ng-src="{{ post.ImageURL120 }}" />
     </div>
-    <div class="cuisine">
-      {{ post.Cuisine }}
-    </div>
-    <!-- <p id="rating">{{ post.StarRating | number:1 }}</p> -->
-    <!-- <p id="recipe-id" ng-model="post.RecipeID">{{ post.RecipeID }}</p> -->
-    <br>
-
-    <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
-      <button id="get-recipe-button" class="btn btn-default btn-md">Show/hide this recipe!</button>
-    </form>
+    <p id="rating">{{ post.StarRating | number:1 }}</p>
+    <p id="recipe-id" ng-model="post.RecipeID">{{ post.RecipeID }}</p>
+    <div class="show-recipe">
+      <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
+        <button id="show-recipe-button" class="btn btn-md">Show recipe</button>
+      </form>
+    </div> -->
 
     <div class="selected-recipe" ng-show="hiddenRecipeDiv">
       <div ng-include="'components/search/recipeView.html'"></div>
     </div>
 
-      <form class="addFav" ng-submit="addFavorite(recipe.Title, post.RecipeID)">
-        <button id="get-recipe-button" class="btn btn-warning btn-md">Add to favorites</button>
-      </form>
-    </div>
+    <!-- <form class="addFav" ng-submit="addFavorite(recipe.Title, post.RecipeID)">
+      <button id="get-recipe-button" class="btn btn-warning btn-md">Add to favorites</button>
+    </form> -->
+  </div>
 </div>
