@@ -1,14 +1,12 @@
-<div class=view-container>
 
   <div class="view-image">
     <img ng-src="{{ recipe.ImageURL }}" />
-  <div>
+  </div>
 
+  <br>
   <div class="recipe-content">
-    <!-- <p ng-model="recipe.Title">{{ recipe.Title }}</p> -->
     Time it takes: {{ recipe.TotalMinutes }}mins
-    <br>
-    <p>Ingredients:</p>
+    <h3>Ingredients</h3>
       <br>
       <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
         {{ ingredient.DisplayQuantity }}
@@ -16,7 +14,8 @@
         {{ ingredient.Name }}
       </div>
     <br>
-    <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
+    <div id="recipe-instructions">
+      <h4>Instructions</h4>
+      <p ng-model="recipe.Instructions">{{ recipe.Instructions }}</p>
+    </div>
   </div>
-
-</div>
