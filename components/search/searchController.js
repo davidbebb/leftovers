@@ -86,7 +86,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', '$
       var excludedOpt = '&exclude_ing=' + $scope.excludedIngredients.toString();
       var recipeOpt = '/recipes?any_kw=' + ($scope.ingredients).toString();
       var searchUrl = 'https://api.bigoven.com' + recipeOpt + dietOpt +
-                      excludedOpt + '&api_key=' + apiKey + '&pg=1&rpp=15';
+                      excludedOpt + '&photos=1' + '&api_key=' + apiKey + '&pg=1&rpp=15';
       return searchUrl;
     };
 
