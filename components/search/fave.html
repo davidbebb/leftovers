@@ -1,19 +1,28 @@
-<form class="showFav" ng-submit="favesHash()" ng-click="hiddenFavDiv = !hiddenFavDiv">
-  <button id="showFavBtn">Show my favorite recipes!</button>
+<form class="showFav" ng-click="favesHash(); hiddenFavDiv = !hiddenFavDiv">
+  <a id="showFavBtn">Show my favorite recipes</a>
 </form>
 
-<div class="FavRecipes" ng-show="hiddenFavDiv" ng-repeat="(key, value) in obj">
+<modal-dialog id="fav-list" show="hiddenFavDiv" dialog-title='Favorites'>
+  <!-- <button ng-click="yess = !yess"></button> -->
 
-  <form class="getRecipe" ng-click="hiddenFavRecipeDiv = !hiddenFavRecipeDiv; getRecipe(value)">
-    <button>{{ key }}</button>
-  </form>
+  <div class="FavRecipes"   ng-repeat="(key, value) in obj">
 
-  <form class="removeFav" ng-submit="removeFavorite(value, key)">
-    <button style="color:red" id="removeFavBtn">Remove from favorites</button>
-  </form>
+    <form class="getRecipe" ng-click="getRecipe(value); hiddenFavRecipeDiv = !hiddenFavRecipeDiv;" >
 
-  <div class="selected-recipe" ng-show="hiddenFavRecipeDiv">
+
+    <a id='keyLink' >{{ key }}</a>
+    </form>
+
+
+    <form class="removeFav" ng-click="removeFavorite(value, key)">
+      <button class="btn btn-danger btn-xs" id="removeFavBtn">Remove from favorites </button>
+    </form>
+  <br>
+
+</modal-dialog>
+
+<modal-dialog id="selected-fav" ng-hide="hiddenFavRecipeDiv" dialog-title="{{key}}">
     <div ng-include="'components/search/recipeView.html'"></div>
-  </div>
+</modal-dialog>
 
 </div>

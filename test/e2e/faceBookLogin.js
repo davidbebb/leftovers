@@ -32,8 +32,8 @@ describe('User Sign up page', function() {
 
   it('should login succesfully using auth0', function() {
     expect(browser.getTitle()).toEqual('leftovers');
-    var myElement = element(by.id('displayName'));
-    expect(myElement.getText()).toEqual('Open Graph Test User');
+    var myElement = element(by.id('welcome'));
+    expect(myElement.getText()).toEqual('Welcome Open Graph Test User');
   });
 
   it('displays a logout button', function() {

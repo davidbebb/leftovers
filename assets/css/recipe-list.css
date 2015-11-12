@@ -1,6 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:300);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 
+#selected-fav .addFav #addFavBtn {
+  visibility: hidden;
+}
+
+#selected-fav .ng-modal-dialog {
+  font-family: 'Droid Serif', sans-serif;
+  height: 600px;
+  width: 350px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
 #recipe-results {
   text-align: center;
   font-family: 'Droid Serif', sans-serif;
