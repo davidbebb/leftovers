@@ -1,14 +1,24 @@
-<img ng-src="{{ recipe.ImageURL }}" />
-<p ng-model="recipe.Title">{{ recipe.Title }}</p>
-Time it takes: {{ recipe.TotalMinutes }}mins
-<p>Ingredients:</p>
-<div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
-{{ ingredient.DisplayQuantity }}
-{{ ingredient.Unit }}
-{{ ingredient.Name }}
+<div class=view-container>
+
+  <div class="view-image">
+    <img ng-src="{{ recipe.ImageURL }}" />
+  <div>
+
+  <div class="recipe-content">
+    <!-- <p ng-model="recipe.Title">{{ recipe.Title }}</p> -->
+    Time it takes: {{ recipe.TotalMinutes }}mins
+    <br>
+    <p>Ingredients:</p>
+      <br>
+      <div class="ingredients" ng-model="ingredient.Name" ng-repeat="ingredient in recipeIngredients">
+        <br>
+        {{ ingredient.DisplayQuantity }}
+        {{ ingredient.Unit }}
+        {{ ingredient.Name }}
+      </div>
+    <br>
+    <p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
+  </div>
+
+
 </div>
-<br>
-<p ng-model="recipe.Instructions">Instructions: {{ recipe.Instructions }}</p>
-<!-- <form class="removeFav" ng-submit="removeFavorite(post.RecipeID)">
-  <button style="color:red" id="removeFavBtn">Remove from favorites</button>
-</form> -->

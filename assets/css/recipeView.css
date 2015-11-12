@@ -1,0 +1,12 @@
+.view-image {
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.view-image img {
+  min-height: auto;
+  max-width: 100%;
+}
