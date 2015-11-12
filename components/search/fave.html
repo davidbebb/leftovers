@@ -3,11 +3,11 @@
 </form>
 
 <modal-dialog show="hiddenFavDiv" dialog-title='Favorites'>
-  <button ng-click="yess = !yess"></button>
+  <!-- <button ng-click="yess = !yess"></button> -->
 
-<div class="FavRecipes" ng-hide='yess'  ng-repeat="(key, value) in obj">
+<div class="FavRecipes"   ng-repeat="(key, value) in obj">
 
-  <form class="getRecipe" ng-click="getRecipe(value); hiddenFavRecipeDiv = !hiddenFavRecipeDiv; yess = !yess" >
+  <form class="getRecipe" ng-click="getRecipe(value); hiddenFavRecipeDiv = !hiddenFavRecipeDiv;" >
 
 
   <a id='keyLink' >{{ key }}</a>
@@ -15,7 +15,7 @@
 
 
   <form class="removeFav" ng-click="removeFavorite(value, key)">
-    <button class="btn btn-danger btn-xs" ng-hide='yess' id="removeFavBtn">Remove from favorites </button>
+    <button class="btn btn-danger btn-xs" id="removeFavBtn">Remove from favorites </button>
   </form>
 <br>
 

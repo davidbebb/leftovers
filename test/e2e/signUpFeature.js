@@ -19,7 +19,7 @@ describe('User Sign up page', function() {
 
   it('user\'s name not displayed if user not logged in', function() {
     browser.get('http://localhost:8080');
-    var myElement = element(by.id('displayName'));
+    var myElement = element(by.id('welcome'));
     expect(myElement.isDisplayed()).toBeFalsy();
 
   });
