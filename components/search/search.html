@@ -13,9 +13,9 @@
           </button>
 
           <modal-dialog show='hiddenMeatDiv' dialog-title='Meat'>
-            <div class="meat" ng-repeat="meatType in meat">
+            <div class='ingredientCheckBox' class="meat" ng-repeat="meatType in meat">
               <input type="checkbox" checklist-model="getIngredients()" checklist-value="meatType" ng-change="check(meatType, checked)">
-              {{ meatType }}
+                <label>{{ meatType }}</label>
             </div>
           </modal-dialog>
         </div>
@@ -26,9 +26,9 @@
               <br>Vegetables
             </button>
             <modal-dialog show='hiddenVegDiv' dialog-title='Vegetables'>
-              <div class="veg" ng-repeat="vegType in veg">
+              <div class='ingredientCheckBox' class="veg" ng-repeat="vegType in veg">
                 <input type="checkbox" checklist-model="getIngredients()" checklist-value="vegType" ng-change="check(vegType, checked)">
-                    {{ vegType }}
+                <label>{{ vegType }}</label>
               </div>
             </modal-dialog>
           </div>
@@ -40,9 +40,9 @@
           </button>
 
           <modal-dialog show='hiddenFruitDiv' dialog-title='Fruit'>
-            <div class="fruit" ng-repeat="fruitType in fruits">
+            <div class='ingredientCheckBox' class="fruit" ng-repeat="fruitType in fruits">
               <input type="checkbox" checklist-model="getIngredients()" checklist-value="fruitType" ng-change="check(fruitType, checked)">
-              {{ fruitType }}
+              <label>{{ fruitType }}</label>
             </div>
           </modal-dialog>
 
@@ -58,9 +58,9 @@
           </button>
 
           <modal-dialog show='hiddenSeafoodDiv' dialog-title='Seafood'>
-            <div class="seafood" ng-repeat="seafoodType in seafood">
+            <div class='ingredientCheckBox' class="seafood" ng-repeat="seafoodType in seafood">
               <input type="checkbox" checklist-model="getIngredients()" checklist-value="seafoodType" ng-change="check(seafoodType, checked)">
-              {{ seafoodType }}
+              <label>{{ seafoodType }}</label>
             </div>
           </modal-dialog>
         </div>
@@ -73,9 +73,9 @@
           </button>
 
           <modal-dialog show='hiddenDairyDiv' dialog-title='Dairy'>
-            <div class="dairy" ng-repeat="dairyType in dairy">
+            <div class='ingredientCheckBox' class="dairy" ng-repeat="dairyType in dairy">
               <input type="checkbox" checklist-model="getIngredients()" checklist-value="dairyType" ng-change="check(dairyType, checked)">
-              {{ dairyType }}
+              <label>{{ dairyType }}</label>
             </div>
           </modal-dialog>
 
@@ -86,9 +86,9 @@
           </button>
 
           <modal-dialog show='hiddenGrainsDiv' dialog-title='Grains'>
-            <div class="grains" ng-repeat="grainsType in grains">
+            <div class='ingredientCheckBox' class="grains" ng-repeat="grainsType in grains">
               <input type="checkbox" checklist-model="getIngredients()" checklist-value="grainsType" ng-change="check(grainsType, checked)">
-              {{ grainsType }}
+              <label>{{ grainsType }}</label>
             </div>
           </modal-dialog>
           </div>
