@@ -1,7 +1,12 @@
-leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'ingredientLists',
-  function($scope, $rootScope, $http, ingredientLists) {
+leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', '$location', '$anchorScroll', 'ingredientLists',
+  function($scope, $rootScope, $http, $location, $anchorScroll, ingredientLists) {
+
+    $scope.gotoResults = function() {
+      $anchorScroll('recipe-results');
+    };
 
     $scope.ingredients = [];
+    $scope.ingredientsFromSearchBox = [];
     $scope.posts = null;
     $scope.excludedIngredients = [];
     $scope.favCount = 0;
@@ -59,6 +64,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
 
     $scope.check = function(value, checked) {
       var index = $scope.ingredients.indexOf(value);
+      console.log(value);
       if (index >= 0 && !checked) {
         $scope.ingredients.splice(index, 1);
       }
@@ -66,6 +72,13 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       if (index < 0 && checked) {
         $scope.ingredients.push(value);
       }
+    };
+
+    $scope.addToIngredients = function(ingredient) {
+      tmp = ingredient.split(' ');
+      console.log(tmp);
+      $scope.ingredientsFromSearchBox = tmp;
+
     };
 
     $scope.url = function() {
@@ -77,9 +90,11 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       return searchUrl;
     };
 
-    $scope.addIngredient = function(ingredient, excluded) {
-      $scope.ingredients.push(ingredient);
+    $scope.addIngredient = function(excluded) {
+      console.log($scope.ingredients);
+      $scope.ingredients.push($scope.ingredientsFromSearchBox);
       $scope.excludedIngredients.push(excluded);
+
       var url = $scope.url();
 
       $http.get(url).
@@ -90,9 +105,10 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
         });
 
       $scope.ingredient = '';
-      $scope.ingredients = [];
+      $scope.ingredients = [ ];
       $scope.excluded = '';
-      $scope.excludedIngredients = [];
+      $scope.excludedIngredients = [ ];
+      $scope.ingredientsFromSearchBox = [ ];
       console.log(url);
     };
 

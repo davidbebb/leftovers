@@ -1,6 +1,11 @@
-
+.logo {
+  width: 70%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 .img-circle {
+    width: 80%;
     -webkit-animation: fadein 2.5s; /* Safari and Chrome */
     -moz-animation: fadein 2.5s; /* Firefox */
     -ms-animation: fadein 2.5s; /* Internet Explorer */

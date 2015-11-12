@@ -112,3 +112,7 @@
   width: 94px;
   border-radius: 4px !important;
 }
+
+textarea {
+    resize: none;
+}

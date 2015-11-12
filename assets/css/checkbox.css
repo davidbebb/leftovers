@@ -1,0 +1,41 @@
+
+.ingredientCheckBox input {
+    /* First, we make it as wide as the container */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Then, we put it on top of everything else */
+    z-index: 100;
+    /* Last, we make it invisible */
+    opacity: 0;
+    /* This one is just for ergonomy */
+    cursor: pointer;
+
+}
+.ingredientCheckBox {
+  padding-top: 0px;
+}
+
+.ingredientCheckBox label {
+    width: 90%;
+    height: 30px;
+    position: relative;
+    border-radius: 4%;
+    background: #eaeaea;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;    
+
+}
+
+
+.ingredientCheckBox input:checked ~ label {
+    background-color: #7D8402;
+    font-weight: bold;
+    color: snow;
+}
+
+.ingredientCheckBox input:checked ~ label:before { /* LED */
+    background: #25d025; /* Fallback */
+    background: radial-gradient(40% 35%, #5aef5a, #25d025 60%);
+}
