@@ -119,7 +119,7 @@
       </div>
 
 
-      <form class="newIngredient" ng-submit="addIngredient(excluded); ing=''; excluded=''; ">
+      <form class="newIngredient" ng-submit="addIngredient(excluded); ing=''; excluded=''; gotoResults();">
         <textarea name='freeIngredientsText'rows="4" cols="50" class="form-control" ng-model="ing" ng-change ="addToIngredients(ing);"placeholder="What do you have in your fridge?"></textarea>
         <input type="text" class="form-control" ng-model="excluded" placeholder="Ingredients to exclude">
 
@@ -130,4 +130,5 @@
     </div>
 
   </div>
+
 </div>

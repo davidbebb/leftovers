@@ -1,5 +1,9 @@
-leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'ingredientLists',
-  function($scope, $rootScope, $http, ingredientLists) {
+leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', '$location', '$anchorScroll', 'ingredientLists',
+  function($scope, $rootScope, $http, $location, $anchorScroll, ingredientLists) {
+
+    $scope.gotoResults = function() {
+      $anchorScroll('recipe-results');
+    };
 
     $scope.ingredients = [];
     $scope.ingredientsFromSearchBox = [];
@@ -117,17 +121,17 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
         success(function(data, status, headers, config) {
           $scope.recipe = data;
           $scope.recipeIngredients = data.Ingredients;
-          console.log($scope.recipe);
+          // console.log($scope.recipe);
         }).
           error(function(data, status, headers, config) {
         });
 
-      console.log(recipeUrl);
+      // console.log(recipeUrl);
     };
 
     $scope.addFavorite = function(title, recipeID) {
-      console.log(title);
-      console.log(recipeID);
+      // console.log(title);
+      // console.log(recipeID);
       favRef.child(recipeID).set({title});
       $scope.favCount++;
     };
@@ -135,10 +139,10 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
     $scope.faves = [];
 
     favRef.on('value', function(snapshot) {
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
       snapshot.forEach(function(childSnapshot) {
         $scope.faves.push(childSnapshot.val().title, childSnapshot.key());
-        console.log($scope.faves);
+        // console.log($scope.faves);
       });
     });
 
@@ -152,7 +156,7 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
           obj[key] = val;
         }
       }
-
+      console.log($scope.obj)
       return $scope.obj = obj;
     };
 
@@ -160,6 +164,23 @@ leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'i
       rmRef = new Firebase('https://leftovers-app.firebaseio.com/users/' + $rootScope.fbID + '/favorites/' + recipeID);
       rmRef.remove();
       delete $scope.obj[title];
+      // console.log($scope.faves)
+      var index = $scope.faves.indexOf(recipeID);
+      if (index > -1) {
+        $scope.faves.splice(index, 1);
+      };
+
+      // var index = $scope.faves.indexOf(title);
+      // if (index > -1) {
+      //   $scope.faves.splice(index, 1);
+      // };
+      // console.log($scope.faves)
+
+
+
+      return $scope.obj;
+
+
     };
 
 }]);

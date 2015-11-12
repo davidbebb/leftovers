@@ -10,12 +10,14 @@
             <!-- <button class ="btn btn-primary btn-large" ng-show='authData.facebook' id='logout' ng-click='logout()'>Logout</button> -->
 
             <a class="navbar-brand topnav" style=href="#">Leftovers</a>
+            <a class="navbar-brand topnav" id='welcome' ng-show='authData.facebook' style=href="#">Welcome {{authData.facebook.displayName}}</a>
+
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right pull-right" >
               <li>
-                <a id='displayName' ng-show='authData.facebook'>{{authData.facebook.displayName}}</a>
+                <a ng-show='authData.facebook' ng-controller='SearchController' ng-include="'components/search/fave.html'" ></a>
               </li>
               <li>
                 <a id='logout' ng-show='authData.facebook'ng-click='logout()'>Logout</a>
