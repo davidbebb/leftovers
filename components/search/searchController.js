@@ -1,5 +1,12 @@
-leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', 'ingredientLists',
-  function($scope, $rootScope, $http, ingredientLists) {
+leftoversApp.controller('SearchController', ['$scope', '$rootScope', '$http', '$location', '$anchorScroll', 'ingredientLists',
+  function($scope, $rootScope, $http, $location, $anchorScroll, ingredientLists) {
+
+    // Auto-scroll to carousel
+    $scope.gotoResults = function() {
+      $location.hash('recipe-results');
+      $anchorScroll();
+    };
+    //
 
     $scope.ingredients = [];
     $scope.ingredientsFromSearchBox = [];

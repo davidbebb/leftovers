@@ -3,5 +3,5 @@ var leftoversApp = angular.module('LeftoversApp', [
   'ngRoute',
   'ngAnimate',
   'ui.bootstrap',
-  'ngModal',]
+  'ngModal']
 );
