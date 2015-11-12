@@ -93,6 +93,10 @@
   text-align: center
 }
 
+.recipe-container {
+  text-align: center;
+}
+
 .centre-button-spacing {
   margin-left: 4px !important;
   margin-right: 4px !important;

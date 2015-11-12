@@ -1,20 +1,20 @@
 <!-- Recipe results -->
 <div id="recipe-results">
-      <div id="recipe-container" ng-repeat="post in posts">
-        <div class="recipe-title">
-          <p>{{post.Title}}<p>
-        </div>
-        <div class="recipe-img-container">
-          <img ng-src="{{ post.ImageURL }}" />
-        </div>
-        <div class="show-recipe">
-          <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
-            <button id="show-recipe-button" class="btn btn-button">Show recipe</button>
-          </form>
-        </div>
-
-      <div class="selected-recipe" ng-show="hiddenRecipeDiv">
-        <div ng-include="'components/search/recipeView.html'"></div>
-      </div>
+  <div id="recipe-container" ng-repeat="post in posts">
+    <div class="recipe-title">
+      <p>{{post.Title}}<p>
     </div>
+    <div class="recipe-img-container">
+      <img ng-src="{{ post.ImageURL }}" />
+    </div>
+    <div class="show-recipe">
+      <form class="getRecipe" ng-submit="getRecipe(post.RecipeID)" ng-click="hiddenRecipeDiv = !hiddenRecipeDiv">
+        <button id="show-recipe-button" class="btn btn-button">Show recipe</button>
+      </form>
+    </div>
+    
+    <modal-dialog id="selected-recipe" show='hiddenRecipeDiv' dialog-title="{{post.Title}}">
+      <div ng-include="'components/search/recipeView.html'"></div>
+    </modal-dialog>
+  </div>
 </div>

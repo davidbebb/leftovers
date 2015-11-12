@@ -1,6 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:300);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+
 #recipe-results {
   text-align: center;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Droid Serif', sans-serif;
 }
 
 #recipe-carousel {
@@ -18,11 +21,10 @@
 }
 
 .recipe-title {
-  /*text-align: left;*/
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
   padding-top: 10px;
   padding-bottom: 3px;
-  font-weight: bold;
-  /*background-color: goldenrod;*/
 }
 
 .show-recipe {

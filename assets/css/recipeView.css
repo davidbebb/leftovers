@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:300);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+
+.addFav {
+  padding-bottom: 20px;
+}
+
+#selected-recipe .ng-modal-dialog {
+  height: 80%;
+  width: 70%;
+  overflow: scroll;
+}
+
+.view-image {
+  /*width: 800px;
+  height: 200px;*/
+  margin: 0 auto;
+  display: block;
+}
+
+.view-image img {
+  min-height: auto;
+  max-width: 100%;
+}
+
+#recipe-instructions {
+  text-align: justify;
+  /*padding: 2em 6em;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.ng-modal-title {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
+
+h4 {
+  margin-bottom: 1em;
+}
+
+.ng-modal-dialog p,
+.ingredients,
+.recipe-instructions {
+  font-size: 14px;
+  line-height: 1.75em;
+  font-family: 'Droid Serif', serif;
+}
