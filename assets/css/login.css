@@ -44,7 +44,16 @@
     to   { opacity: 1; }
 }​
 
+.signup-button-spacing, #signup {
+  margin-top: 3em;
+  margin-bottom: 30em;
+}
 
+.nav-logo {
+  width: 6em;
+  margin-top: -0.25em;
+  opacity: 0.55;
+}
 
 
 
@@ -88,6 +97,10 @@ h6 {
     text-align: center;
     color: #f8f8f8;
     background: url('./../../assets/img/loginbackground2.jpg') no-repeat center center;
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    background-position: center;
     background-size: cover;
 }
 
